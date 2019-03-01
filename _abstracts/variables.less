@@ -1,0 +1,86 @@
+// Media queries breakpoints
+// --------------------------------------------------
+
+/**
+ * Define the breakpoints at which your layout will change, adapting to different screen sizes.
+ */
+
+// Extra extra small screen
+@screen-xxs:                 320px;
+@screen-xxs-min:             @screen-xxs;
+
+// Extra small screen / phone
+@screen-xs:                  480px;
+@screen-xs-min:              @screen-xs;
+@screen-phone:               @screen-xs-min;
+
+// Small screen / tablet
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+@screen-tablet:              @screen-sm-min;
+
+// Medium screen / desktop
+@screen-md:                  992px;
+@screen-md-min:              @screen-md;
+@screen-desktop:             @screen-md-min;
+
+// Large screen / wide desktop
+@screen-lg:                  1200px;
+@screen-lg-min:              @screen-lg;
+@screen-lg-desktop:          @screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xxs-max:             (@screen-xs-min - 1);
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
+
+
+// Grid system
+// --------------------------------------------------
+
+// Define your custom responsive grid.
+@grid-gutter-width:         40px;
+
+/**
+ * Container sizes
+ * Define the maximum width of `.container` for different screen sizes.
+ */
+
+// Small screen / tablet
+@container-tablet:             (710px + @grid-gutter-width);
+@container-sm:                 @container-tablet;
+
+// Medium screen / desktop
+@container-desktop:            (930px + @grid-gutter-width);
+@container-md:                 @container-desktop;
+
+// Large screen / wide desktop
+@container-large-desktop:      (1130px + @grid-gutter-width);
+@container-lg:                 @container-large-desktop;
+
+
+// Fonts
+// --------------------------------------------------
+@font-family-base:           serif;
+@font-size-base:             2rem;
+@line-height-base:           1.6;
+
+
+
+// Colors
+// --------------------------------------------------
+@brand-primary:              #00136f;
+@text-color:                 #3e3e3e;
+@link-color:                 @brand-primary;
+@color-white:                #fff;
+@color-gray:                 #c0c0c0;
+
+@burger-line:                #4a5050;
+
+
+
+// Other
+// --------------------------------------------------
+@animation-speed:            .25s;
+@max-container-width:        100%;

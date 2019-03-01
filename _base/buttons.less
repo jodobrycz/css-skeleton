@@ -1,0 +1,31 @@
+.btn {
+	flex: 0 0 auto;
+	background: @brand-primary;
+	border: .1rem solid @color-white;
+	color: @color-white;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 2rem;
+	padding: 1rem 2rem;
+	text-align: center;
+	text-decoration: none;
+	transition: all @animation-speed ease-in-out;
+
+	&:hover,
+	&:focus {
+		background-color: @color-white;
+		border-color: @brand-primary;
+		color: @brand-primary;
+	}
+
+	&:not(:last-child) {
+		margin-right: 2rem;
+	}
+}
+
+.buttons {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	max-width: none;
+}

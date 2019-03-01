@@ -1,0 +1,100 @@
+@containerImageGutter: 0;
+
+.container-images {
+	display: flex;
+	margin: 0 -@containerImageGutter 5rem -@containerImageGutter;
+
+	img {
+		flex: 0 0 25%;
+		padding: 0 @containerImageGutter;
+	}
+}
+
+.broken-image-1 {
+	display: block;
+	font-weight: 400;
+	//height: 30rem;
+	position: relative;
+	text-align: center;
+	//top: 2rem;
+	//width: 40rem;
+
+	&:before {
+		//content: "Unable to load image";
+		content: "We're sorry, the image below is broken :(";
+		display: block;
+		font-size: 110%;
+	}
+
+	&:after {
+		content: "(url: " attr(src) ")";
+		display: block;
+		font-size: 110%;
+	}
+}
+
+.broken-image-2 {
+	display: block;
+	font-weight: 400;
+	//height: 30rem;
+	position: relative;
+	text-align: center;
+	//top: 2rem;
+	//width: 40rem;
+
+	&:after {
+		background-color: @color-white;
+		content: "\f1c5" " " attr(alt);
+		display: block;
+		font-family: FontAwesome;
+		font-size: 110%;
+		//height: 100%;
+		left: 0;
+		position: absolute;
+		padding: 2rem;
+		top: 0;
+		width: 100%;
+		z-index: 2;
+	}
+}
+
+.broken-image-3 {
+	display: block;
+	font-weight: 400;
+	//height: 30rem;
+	position: relative;
+	text-align: center;
+	//top: 2rem;
+	top: 0;
+	//width: 40rem;
+
+	&:before {
+		background-color: @color-white;
+		content: " ";
+		display: block;
+		//height: calc(100% + 10px);
+		height: 100%;
+		left: 0;
+		position: absolute;
+		//top: -1rem;
+		top: 0;
+		width: 100%;
+	}
+
+	&:after {
+		background-color: #e6e6e6;
+		border: .2rem dotted #cacaca;
+		content: "\f127" " Broken Image of "  attr(src);
+		display: block;
+		font-family: FontAwesome;
+		font-size: 110%;
+		//left: 4rem;
+		left: 0;
+		padding: 1rem;
+		position: absolute;
+		text-align: center;
+		//top: 4rem;
+		top: 0;
+		//width: 50%;
+	}
+}

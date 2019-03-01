@@ -1,0 +1,47 @@
+body {
+	&:after {
+		color: #fff;
+		left: 0;
+		padding: .5rem 1rem;
+		position: fixed;
+		top: 0;
+		z-index: 9999;
+
+		@media (max-width: 320px) {
+			background: #4d4d4d;
+			color: #f00;
+			content: "[ < 320px ]";
+		}
+
+		@media (min-width: @screen-xxs) {
+			background: #7c378a;
+			content: "[ XXS+ ]";
+		}
+
+		@media (min-width: @screen-xs) {
+			background: #3465aa;
+			content: "[ XS+ ]";
+		}
+
+		@media (min-width: @screen-sm) {
+			background: #09a275;
+			content: "[ SM+ ]";
+		}
+
+		@media (min-width: @screen-md) {
+			background: #7cb854;
+			content: "[ MD+ ]";
+		}
+
+		@media (min-width: @screen-lg) {
+			background: #f2b701;
+			content: "[ LG+ ]";
+		}
+	}
+}
+
+/*
+ #e57d04
+ #dc0030
+ #b10058
+*/
