@@ -25,6 +25,11 @@
 	z-index: -1;
 }
 
+@mixin horizontal-grid($height: .5rem) {
+	background-image:	linear-gradient(to bottom, transparent 50%, $gridBackground 50%, $gridBackground 100%);
+	background-size: $height $height;
+}
+
 @mixin grid() {
 	position: relative;
 
@@ -37,8 +42,13 @@
 	//@include grid();
 }
 
+html {
+	@include horizontal-grid(.4rem);
+}
+
 body {
 	//@include grid-10px();
+	background-color: transparent;
 
 	&:before {
 		@include make-container-max-widths();
