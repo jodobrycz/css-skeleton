@@ -1,0 +1,64 @@
+/* http://stripesgenerator.com */
+$grid-background: rgba(#f00, .15);
+
+@mixin grid-8px($dark: #e2e2e2, $light: #f2f2f2) {
+	background-image: linear-gradient(to right, $dark 6.25%, transparent 6.25%, transparent 25%, $light 25%, $light 31.25%, transparent 31.25%, transparent 50%, $dark 50%, $dark 56.25%, transparent 56.25%, transparent 75%, $light 75%, $light 81.25%, transparent 81.25%, transparent 100%),
+	                  linear-gradient(to bottom, $dark 6.25%, transparent 6.25%, transparent 25%, $light 25%, $light 31.25%, transparent 31.25%, transparent 50%, $dark 50%, $dark 56.25%, transparent 56.25%, transparent 75%, $light 75%, $light 81.25%, transparent 81.25%, transparent 100%);
+	background-size: 16px 16px;
+}
+
+@mixin grid-10px($dark: #e2e2e2, $light: #f2f2f2) {
+	background-image: linear-gradient(to right, $dark 5%, transparent 5%, transparent 25%, $light 25%, $light 30%, transparent 30%, transparent 50%, $dark 50%, $dark 55%, transparent 55%, transparent 75%, $light 75%, $light 80%, transparent 80%, transparent 100%),
+	                  linear-gradient(to bottom, $dark 5%, transparent 5%, transparent 25%, $light 25%, $light 30%, transparent 30%, transparent 50%, $dark 50%, $dark 55%, transparent 55%, transparent 75%, $light 75%, $light 80%, transparent 80%, transparent 100%);
+	background-size: 20px 20px;
+}
+
+@mixin grid-before() {
+	background-image: linear-gradient(to right, transparent $grid-gutter-width / 2, $grid-background $grid-gutter-width / 2, $grid-background calc(100% - #{$grid-gutter-width} / 2), transparent calc(100% - #{$grid-gutter-width} / 2), transparent 100%);
+	background-size: percentage(1 / 12) percentage(1 / 12);
+	content: "";
+	height: 100%;
+	left: 0;
+	padding-left: $grid-gutter-width / 2;
+	padding-right: $grid-gutter-width / 2;
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+}
+
+@mixin horizontal-grid($height: .5rem) {
+	background-image: linear-gradient(to bottom, transparent 50%, $grid-background 50%, $grid-background 100%);
+	background-size: $height $height;
+}
+
+@mixin grid() {
+	position: relative;
+
+	&:before {
+		@include grid-before();
+	}
+}
+
+.container {
+	//@include grid();
+}
+
+html {
+	@include horizontal-grid(.4rem);
+}
+
+body {
+	//@include grid-10px();
+	background-color: transparent;
+
+	&:before {
+		@include make-container-max-widths();
+		@include grid-before();
+
+		bottom: 0;
+		left: 50%;
+		position: fixed;
+		top: 0;
+		transform: translateX(-50%);
+	}
+}

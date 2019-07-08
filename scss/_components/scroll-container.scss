@@ -1,0 +1,24 @@
+.horizontal-scroll-container {
+	margin-bottom: $line-height-base*1em;
+	overflow: auto;
+	padding-bottom: 1rem;
+
+	/*
+	& > *:last-child {
+		overflow: initial;
+	}
+	*/
+	@include horizontal-scroll-container();
+
+	/*
+	&::-webkit-scrollbar {
+		-webkit-appearance: none;
+		height: .8rem;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: rgba(0, 0, 0, 0.3);
+		border-radius: .4rem;
+	}
+	*/
+}

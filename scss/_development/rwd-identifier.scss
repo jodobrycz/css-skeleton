@@ -1,0 +1,47 @@
+body {
+	&:after {
+		color: #fff;
+		left: 0;
+		padding: .5rem 1rem;
+		position: fixed;
+		top: 0;
+		z-index: 9999;
+
+		@include screen-xxs-max() {
+			background: #4d4d4d;
+			color: #f00;
+			content: "[ < 320px ]";
+		}
+
+		@include screen-xs() {
+			background: #7c378a;
+			content: "[ XS+ ]";
+		}
+
+		@include screen-sm() {
+			background: #3465aa;
+			content: "[ SM+ ]";
+		}
+
+		@include screen-md() {
+			background: #09a275;
+			content: "[ MD+ ]";
+		}
+
+		@include screen-lg() {
+			background: #7cb854;
+			content: "[ LG+ ]";
+		}
+
+		@include screen-xl() {
+			background: #f2b701;
+			content: "[ XL+ ]";
+		}
+	}
+}
+
+/*
+ #e57d04
+ #dc0030
+ #b10058
+*/

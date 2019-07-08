@@ -1,0 +1,37 @@
+.responsive-image {
+	@include responsive-image();
+}
+
+img {
+	-ms-interpolation-mode: bicubic; /* For IE. – https://css-tricks.com/ie-fix-bicubic-scaling-for-images/ */
+
+	.wysiwyg-content & {
+		@include responsive-image();
+	}
+
+	a & {
+		.wysiwyg-content & {
+			display: inline-block;
+		}
+	}
+}
+
+svg {
+	fill: currentColor;
+	max-height: 100%;
+	overflow: hidden;
+	stroke: currentColor;
+	stroke-width: 0;
+	transition: fill $animation-speed ease-in-out;
+	vertical-align: middle;
+
+	/*
+	&:not([fill]) {
+		fill: currentColor; !* Change the fill color to match the text color in all browsers (opinionated). *!
+	}
+	*/
+
+	&:not(:root) {
+		overflow: hidden; /* Hide the overflow in IE. */
+	}
+}

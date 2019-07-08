@@ -1,0 +1,74 @@
+// Media queries breakpoints
+// --------------------------------------------------
+
+/**
+ * Define the breakpoints at which your layout will change, adapting to different screen sizes.
+ */
+/*
+$grid-breakpoints: (
+	xxs: 0,
+	 xs: 320px,
+	 sm: 480px,
+	 md: 768px,
+	 lg: 992px,
+	 xl: 1200px
+);
+*/
+$grid-breakpoints: (
+	xxs: 0,
+	 xs: 20em,
+	 sm: 30em,
+	 md: 48em,
+	 lg: 62em,
+	 xl: 75em
+);
+
+/**
+ * Define the maximum width of `.container` for different screen sizes.
+ */
+//$container-max-widths: (
+//	md: 720px, //740
+//	lg: 960px, // 960
+//	xl: 1140px //1170
+//);
+$container-max-widths: (
+	md: 75rem,
+	lg: 97rem,
+	xl: 117rem
+);
+
+
+// Grid system
+// --------------------------------------------------
+
+// Define your custom responsive grid.
+//$grid-gutter-width:         40px;
+//$grid-gutter-width:         30px;
+$grid-gutter-width:         3rem;
+
+
+
+// Fonts
+// --------------------------------------------------
+$font-family-base:           serif;
+$font-size-base:             2rem;
+$line-height-base:           1.6;
+
+
+
+// Colors
+// --------------------------------------------------
+$brand-primary:              #00136f;
+$text-color:                 #3e3e3e;
+$link-color:                 $brand-primary;
+$color-white:                #fff;
+$color-gray:                 #c0c0c0;
+
+$burger-line:                #4a5050;
+
+
+
+// Other
+// --------------------------------------------------
+$animation-speed:            .25s;
+$max-container-width:        100%;
