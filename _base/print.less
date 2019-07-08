@@ -5,7 +5,7 @@
 @media print {
 	/** Setting margins */
 	@page {
-		margin: 1cm;
+		margin: 2cm;
 	}
 
 
@@ -14,8 +14,7 @@
 	*:before,
 	*:after {
 		background: transparent !important;
-		color: #000 !important;
-		/* Black prints faster */
+		color: #000 !important; /* Black prints faster */
 		-webkit-box-shadow: none !important;
 		        box-shadow: none !important;
 		text-shadow: none !important;
@@ -91,25 +90,6 @@
 		page-break-after: avoid;
 	}
 
-/*
- * my
- */
-	body {
-		font-size: 12pt;
-	}
-
-	.noprint {
-		display: none;
-	}
-
-	.print {
-		display: block;
-	}
-
-	img {
-		max-width: 100% !important;
-	}
-
 	video,
 	audio,
 	object,
@@ -117,11 +97,53 @@
 		display: none;
 	}
 
-	/*
-	ul {
-		page-break-inside: avoid;
+	.print,
+	.visible-print {
+		display: block !important;
 	}
+
+	.noprint,
+	.hidden-print {
+		display: none !important;
+	}
+
+	.sr-only-focusable-print {
+		clip: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		position: static;
+		width: auto;
+	}
+
+	img {
+		max-width: 100% !important;
+	}
+
+	.container {
+		padding: 0;
+		width: 100%;
+	}
+
+
+	/*
+		html {
+			font-size: 50%;
+		}
 	*/
 
+	/*
+	[class*="col-"] {
+		width: 100%;
+	}
+
+	[class*="col-xxs-offset-"],
+	[class*="col-xs-offset-"],
+	[class*="col-sm-offset-"],
+	[class*="col-md-offset-"],
+	[class*="col-lg-offset-"] {
+		margin-left: 0;
+	}
+	*/
 }
 
