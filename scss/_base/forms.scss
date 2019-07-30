@@ -11,6 +11,7 @@ textarea {
 }
 */
 
+/*
 ::-webkit-input-placeholder {
 	color: lighten($text-color, 40%);
 	opacity: 1;
@@ -27,6 +28,12 @@ textarea {
 }
 
 ::placeholder {
+	color: lighten($text-color, 40%);
+	opacity: 1;
+}
+*/
+
+@include placeholder {
 	color: lighten($text-color, 40%);
 	opacity: 1;
 }

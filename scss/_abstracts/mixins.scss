@@ -130,6 +130,19 @@
 }
 
 
+/* placeholder */
+@mixin placeholder {
+	:-ms-input-placeholder {
+		@content;
+	}
+	::-ms-input-placeholder {
+		@content;
+	}
+	::placeholder {
+		@content;
+	}
+}
+
 /* media queries */
 //$one: 1 / 16;
 $one: .04;
