@@ -9,14 +9,23 @@ h4, .h4 {
 
 h1, .h1 {
 
+	+ h2, + .h2 {
+
+	}
 }
 
 h2, .h2 {
 
+	+ h3, + .h3 {
+
+	}
 }
 
 h3, .h3 {
 
+	+ h4, + .h4 {
+
+	}
 }
 
 h4, .h4 {
@@ -44,6 +53,14 @@ a {
 	@include hover() {
 		//outline: 0;
 		text-decoration: none;
+	}
+
+	@include focus() {
+
+	}
+
+	&:not([class]) {
+		text-decoration-skip-ink: auto;
 	}
 }
 

@@ -17,7 +17,7 @@ img {
 }
 
 svg {
-	fill: currentColor;
+	//fill: currentColor;
 	max-height: 100%;
 	overflow: hidden;
 	stroke: currentColor;
@@ -25,11 +25,10 @@ svg {
 	transition: fill $animation-speed ease-in-out;
 	vertical-align: middle;
 
-	/*
-	&:not([fill]) {
-		fill: currentColor; !* Change the fill color to match the text color in all browsers (opinionated). *!
+	&:not([fill]),
+	& *:not([fill]) {
+		fill: currentColor; /* Change the fill color to match the text color in all browsers (opinionated). */
 	}
-	*/
 
 	&:not(:root) {
 		overflow: hidden; /* Hide the overflow in IE. */

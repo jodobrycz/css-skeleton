@@ -30,7 +30,8 @@ body {
 	font-size: $font-size-base;
 	font-weight: 400;
 	line-height: $line-height-base;
-	min-height: 100%;  /*  Ensure the body element's `min-height` is at least the viewport height. */
+	//min-height: 100%;  /*  Ensure the body element's `min-height` is at least the viewport height. */
+	min-height: 100vh;  /*  Ensure the body element's `min-height` is at least the viewport height. */
 	overflow-x: hidden;
 	position: relative;
 
@@ -43,6 +44,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	 -webkit-font-smoothing: antialiased;
 	         text-rendering: optimizeLegibility;
+	         //text-rendering: optimizeSpeed;
 
 	//-webkit-text-stroke: 0.45px;
 	// or
@@ -94,6 +96,24 @@ abbr[title] {
 	//text-decoration-skip-ink: none; /* Prevent the text-decoration to be skipped. */
 
 	@include hover() {
+		&:after {
+			background-color: $color-white;
+			border: .1rem solid #767676;
+			box-shadow: 0 0 .5rem 0 rgba(0, 0, 0, 0.4);
+			color: $text-color;
+			content: attr(title);
+			font-size: .75em;
+			left: 50%;
+			padding: .3rem .5rem;
+			position: absolute;
+			top: 100%;
+			transform: translateX(-50%);
+			white-space: nowrap;
+			width: auto;
+		}
+	}
+
+	@include focus() {
 		&:after {
 			background-color: $color-white;
 			border: .1rem solid #767676;

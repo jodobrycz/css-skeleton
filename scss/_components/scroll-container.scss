@@ -1,24 +1,29 @@
+$dimension:     .8rem;
+$trackColor:    transparent;
+$thumbColor:    rgba(0, 0, 0, 0.3);
+
 .horizontal-scroll-container {
 	margin-bottom: $line-height-base*1em;
 	overflow: auto;
 	padding-bottom: 1rem;
 
-	/*
-	& > *:last-child {
-		overflow: initial;
-	}
-	*/
-	@include horizontal-scroll-container();
+	/* Firefox */
+	scrollbar-color: $thumbColor $trackColor; /* thumb and track color */
+	scrollbar-width: thin; /* value: none, thin, auto */
 
-	/*
+	/* Webkit - Chrome */
 	&::-webkit-scrollbar {
 		-webkit-appearance: none;
-		height: .8rem;
+		height: $dimension;
+		width: $dimension;
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: rgba(0, 0, 0, 0.3);
+		background-color: $thumbColor;
 		border-radius: .4rem;
 	}
-	*/
+
+	&::-webkit-scrollbar-track {
+		background: $trackColor;
+	}
 }

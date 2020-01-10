@@ -120,9 +120,15 @@
 }
 
 
-/* add hover and focus */
+/* add hover */
 @mixin hover() {
-	&:hover,
+	&:hover {
+		@content;
+	}
+}
+
+/* add focus */
+@mixin focus() {
 	&:focus,
 	&:focus-within {
 		@content;

@@ -17,6 +17,12 @@
 		color: $brand-primary;
 	}
 
+	@include focus() {
+		background-color: $color-white;
+		border-color: $brand-primary;
+		color: $brand-primary;
+	}
+
 	&:not(:last-child) {
 		margin-right: 2rem;
 	}
