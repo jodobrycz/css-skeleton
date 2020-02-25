@@ -34,3 +34,7 @@ svg {
 		overflow: hidden; /* Hide the overflow in IE. */
 	}
 }
+
+img[src$='.svg'] {
+	min-width: 100%; /* Super handy as SVG <img> won’t fill the width if they’ve just got `max-width: 100%` on them. */
+}
