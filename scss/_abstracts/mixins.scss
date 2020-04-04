@@ -58,7 +58,7 @@
 
 
 /* svg */
-@mixin svg-icon-fill($fill: $color-white, $width: 5rem, $height: 5rem) {
+@mixin svg-icon-fill($fill: currentColor, $width: 5rem, $height: 5rem) {
 	fill: $fill;
 	fill-rule: evenodd;
 	height: $height;
@@ -68,7 +68,7 @@
 	width: $width;
 }
 
-@mixin svg-icon-stroke($stroke: $color-white, $width: 5rem, $height: 5rem) {
+@mixin svg-icon-stroke($stroke: currentColor, $width: 5rem, $height: 5rem) {
 	fill: none;
 	fill-rule: evenodd;
 	height: $height;
@@ -76,20 +76,6 @@
 	stroke-linecap: round;
 	stroke-linejoin: round;
 	width: $width;
-}
-
-
-/* horizontal scroll container */
-@mixin horizontal-scroll-container() {
-	&::-webkit-scrollbar {
-		-webkit-appearance: none;
-		height: .8rem;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		background-color: rgba(0, 0, 0, 0.3);
-		border-radius: .4rem;
-	}
 }
 
 
@@ -120,17 +106,35 @@
 }
 
 
-/* add hover */
-@mixin hover() {
-	&:hover {
-		@content;
+/* scrollbar */
+@mixin scrollbar($scrollbar-dimension: $scrollbar-dimension) {
+	/* Firefox */
+	scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color; /* thumb and track color */
+	scrollbar-width: thin; /* value: none, thin, auto */
+
+	/* Webkit - Chrome */
+	&::-webkit-scrollbar {
+		-webkit-appearance: none;
+		height: $scrollbar-dimension;
+		width: $scrollbar-dimension;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $scrollbar-thumb-color;
+		border-radius: $scrollbar-radius;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: $scrollbar-track-color;
 	}
 }
+
 
 /* add focus */
 @mixin focus() {
 	&:focus,
-	&:focus-within {
+	&:focus-within,
+	&:active {
 		@content;
 	}
 }
@@ -294,4 +298,13 @@ $one: .04;
 			@warn 'Your upper breakpoint was invalid: #{$upper}.';
 		}
 	}
+}
+
+
+// CSS Logical Properties – margin, padding, border, inset (top, left, right, bottom)
+@mixin logical-properties($property, $block-start, $inline-end, $block-end: $block-start, $inline-start: $inline-end) {
+	#{$property}-block-end: $block-end;
+	#{$property}-block-start: $block-start;
+	#{$property}-inline-end: $inline-end;
+	#{$property}-inline-start: $inline-start;
 }

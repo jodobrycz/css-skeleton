@@ -1,29 +1,6 @@
-$dimension:     .8rem;
-$trackColor:    transparent;
-$thumbColor:    rgba(0, 0, 0, 0.3);
-
 .horizontal-scroll-container {
-	margin-bottom: $line-height-base*1em;
+	@include scrollbar();
+
 	overflow: auto;
 	padding-bottom: 1rem;
-
-	/* Firefox */
-	scrollbar-color: $thumbColor $trackColor; /* thumb and track color */
-	scrollbar-width: thin; /* value: none, thin, auto */
-
-	/* Webkit - Chrome */
-	&::-webkit-scrollbar {
-		-webkit-appearance: none;
-		height: $dimension;
-		width: $dimension;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		background-color: $thumbColor;
-		border-radius: .4rem;
-	}
-
-	&::-webkit-scrollbar-track {
-		background: $trackColor;
-	}
 }

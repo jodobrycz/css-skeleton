@@ -50,13 +50,20 @@ a {
 	text-decoration: underline;
 	transition: all $animation-speed ease-in-out;
 
-	@include hover() {
-		//outline: 0;
-		text-decoration: none;
+	&:visited {
+
 	}
 
 	@include focus() {
 
+		&:hover {
+
+		}
+	}
+
+	&:hover {
+		//outline: 0;
+		text-decoration: none;
 	}
 
 	&:not([class]) {
@@ -85,23 +92,11 @@ a {
 }
 */
 
+
+
 /*
-sub, sup {
-	font-size: percentage(2 / 3);
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-}
-
-sub {
-	top: .4em;
-}
-
-sup {
-	bottom: .7em;
-}
-*/
-
+ * Text index
+ */
 sub, sup {
 	font-size: percentage(2 / 3);
 	line-height: 0;
@@ -117,39 +112,6 @@ sup {
 	top: -.75em;
 }
 
-/*
-sub, sup {
-	font-size: percentage(2 / 3);
-	position: relative;
-	vertical-align: baseline;
-}
-
-sub {
-	top: .4em;
-	vertical-align: text-bottom
-}
-
-sup {
-	bottom: .4em;
-	vertical-align: text-top
-}
-*/
-
-/*
-sub, sup {
-	font-size: .75em;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-}
-sub {
-	top: .5em;
-}
-sup {
-	bottom: .5em;
-}
-*/
-
 blockquote, q {
 	quotes: none;
 
@@ -157,17 +119,6 @@ blockquote, q {
 		content: '';
 	}
 }
-
-/*
-blockquote, q {
-	quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-}
-*/
 
 small {
 	font-size: percentage(5 / 6); /* Add the correct font size in all browsers. */
