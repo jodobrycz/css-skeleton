@@ -1,8 +1,14 @@
 // https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/
 // https://www.interval.cz/clanky/css2-pravidlo-stranky/
 
+@import "_abstracts/_abstracts";
+@import "_base/reset";
+
+$color-black: #000;
+$color-white: #fff;
+
 // Print styles adapted from HTML5 Boilerplate: https://github.com/h5bp/html5-boilerplate
-//@media print {
+@media print {
 	* {
 		-webkit-print-color-adjust: exact;
 		print-color-adjust: exact;
@@ -19,7 +25,7 @@
 	*:before,
 	*:after {
 		background: transparent !important;
-		color: #000 !important; /* Black prints faster */
+		color: $color-black !important; /* Black prints faster */
 		-webkit-box-shadow: none !important;
 		        box-shadow: none !important;
 		text-shadow: none !important;
@@ -149,5 +155,5 @@
 		margin-left: 0;
 	}
 	*/
-//}
+}
 
