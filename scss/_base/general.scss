@@ -41,7 +41,7 @@ body {
 	line-height: $line-height-base;
 	//min-height: 100%;  /*  Ensure the body element's `min-height` is at least the viewport height. */
 	min-height: 100vh;  /*  Ensure the body element's `min-height` is at least the viewport height. */
-	min-height: -webkit-fill-available; /* mobile viewport bug fix */
+	//min-height: -webkit-fill-available; /* mobile viewport bug fix */
 	overflow-x: hidden;
 	position: relative;
 
@@ -63,6 +63,13 @@ body {
 	//text-shadow: #fff 0px 1px 1px;
 }
 
+/* Avoid Chrome to see Safari hack */
+@supports (-webkit-touch-callout: none) {
+	body {
+		/* The hack for Safari */
+		height: -webkit-fill-available;
+	}
+}
 p,
 //div,
 table,
