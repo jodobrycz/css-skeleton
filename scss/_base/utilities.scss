@@ -3,16 +3,19 @@
  * See: http://a11yproject.com/posts/how-to-hide-content/
  */
 .sr-only {
-	@include sr-only();
+	@include visually-hidden();
 }
 
 /**
- * Use in conjunction with .sr-only to only display content when it's focused.
- * Useful for "Skip to main content" links; see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
- * Credit: HTML5 Boilerplate
+ * Visually hidden techniques allow for content to be hidden from sighted users while still allowing ATs to discover
+   and interact with the content.
+ * The :not portions of the selector are allowing a means for any focusable element to become visible when focused/active
+   by a user. So elements that normally can’t receive focus, like paragraphs, will not become visible if a user navigates
+   through content via screen reader controls or the Tab key, but natively focusable elements, or elements with a non-negative
+   tabindex will have these elements appear in the DOM on focus.
  */
-.sr-only-focusable {
-	@include sr-only-focusable();
+.visually-hidden:not(:focus):not(:active) {
+	@include visually-hidden();
 }
 
 .skip {
