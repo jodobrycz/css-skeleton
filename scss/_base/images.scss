@@ -5,6 +5,9 @@
 img {
 	-ms-interpolation-mode: bicubic; /* For IE. – https://css-tricks.com/ie-fix-bicubic-scaling-for-images/ */
 
+	/* Only render when in viewport */
+	//content-visibility: auto;
+
 	.wysiwyg-content & {
 		@include responsive-image();
 	}

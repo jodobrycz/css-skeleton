@@ -69,6 +69,12 @@ a {
 	&:not([class]) {
 		text-decoration-skip-ink: auto;
 	}
+
+	[href*="//"] {
+		&:not([href*="yourwebsite.com"]) {
+
+		}
+	}
 }
 
 .address {

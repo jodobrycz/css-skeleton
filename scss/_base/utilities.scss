@@ -18,29 +18,6 @@
 	@include visually-hidden();
 }
 
-.skip {
-	margin: 0;
-	padding: 0;
-
-	a {
-		background: $color-white;
-		border: .1rem dotted $text-color;
-		left: -10000em;
-		padding: 1rem 2rem;
-		position: absolute;
-		text-decoration: underline;
-		z-index: 0;
-
-		&:focus,
-		&:active {
-			left: 0;
-			outline: 0;
-			outline: none;
-			z-index: 100;
-		}
-	}
-}
-
 .left {
 	text-align: left;
 }
@@ -76,15 +53,6 @@
 
 .print {
   display: none;
-}
-
-
-.fl, .pull-left {
-	float: left;
-}
-
-.fr, .pull-right {
-	float: right;
 }
 
 /**

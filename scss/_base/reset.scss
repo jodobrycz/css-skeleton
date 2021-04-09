@@ -53,7 +53,7 @@ summary,
 textarea,
 [tabindex] {
 	-ms-touch-action: manipulation; /* Remove the tapping delay in IE 10. */
-	touch-action: manipulation; /* Remove the tapping delay on clickable elements in all browsers (opinionated). */
+	    touch-action: manipulation; /* Remove the tapping delay on clickable elements in all browsers (opinionated). */
 }
 
 /**
