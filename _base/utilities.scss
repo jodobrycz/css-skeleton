@@ -1,20 +1,9 @@
 /**
- * Only display content to screen readers
- * See: http://a11yproject.com/posts/how-to-hide-content/
+ * Hide content visually while keeping it accessible to assistive technologies
  */
-.sr-only {
-	@include visually-hidden();
-}
-
-/**
- * Visually hidden techniques allow for content to be hidden from sighted users while still allowing ATs to discover
-   and interact with the content.
- * The :not portions of the selector are allowing a means for any focusable element to become visible when focused/active
-   by a user. So elements that normally can’t receive focus, like paragraphs, will not become visible if a user navigates
-   through content via screen reader controls or the Tab key, but natively focusable elements, or elements with a non-negative
-   tabindex will have these elements appear in the DOM on focus.
- */
-.visually-hidden:not(:focus):not(:active) {
+.sr-only,
+.visually-hidden,
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
 	@include visually-hidden();
 }
 
@@ -86,16 +75,20 @@
 }
 
 $aspect-ratio: (
-		'1-1': 1 /1,
-		'2-1': 1 / 2,
-		'3-2': 2 / 3,
-		'4-3': 3 / 4,
-		'16-9': 9 / 16,
-		'16-10': 10 / 16
+	'1-1': 1 /1,
+	'2-1': 1 / 2,
+	'3-2': 2 / 3,
+	'4-3': 3 / 4,
+	'16-9': 9 / 16,
+	'16-10': 10 / 16
 );
 
 @each $name, $ar in $aspect-ratio {
 	.aspect-ratio--#{$name} {
 		padding-bottom: percentage($ar);
 	}
+}
+
+.number {
+	font-variant-numeric: tabular-nums;
 }

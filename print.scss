@@ -1,8 +1,19 @@
 // https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/
 // https://www.interval.cz/clanky/css2-pravidlo-stranky/
 
+@import "_abstracts/abstracts";
+@import "_base/reset";
+
+$color-black: #000;
+$color-white: #fff;
+
 // Print styles adapted from HTML5 Boilerplate: https://github.com/h5bp/html5-boilerplate
 @media print {
+	* {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+
 	/** Setting margins */
 	@page {
 		margin: 2cm;
@@ -14,7 +25,7 @@
 	*:before,
 	*:after {
 		background: transparent !important;
-		color: #000 !important; /* Black prints faster */
+		color: $color-black !important; /* Black prints faster */
 		-webkit-box-shadow: none !important;
 		        box-shadow: none !important;
 		text-shadow: none !important;
@@ -54,7 +65,6 @@
 
 	pre,
 	blockquote {
-		border: 1px solid #999;
 		page-break-inside: avoid;
 	}
 
@@ -105,15 +115,6 @@
 	.noprint,
 	.hidden-print {
 		display: none !important;
-	}
-
-	.sr-only-focusable-print {
-		clip: auto;
-		height: auto;
-		margin: 0;
-		overflow: visible;
-		position: static;
-		width: auto;
 	}
 
 	img {

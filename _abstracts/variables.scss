@@ -27,6 +27,16 @@ $container-max-widths: (
 	xl: 117rem
 );
 
+/**
+ * Define z-index.
+ */
+$zindex: (
+	a: 10,
+	b: 20,
+	c: 30,
+	d: 40,
+	e: 50
+);
 
 // Grid system
 // --------------------------------------------------

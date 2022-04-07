@@ -18,17 +18,19 @@ html {
 	font-size: 62.5%; /* This will set all REM to 10 px */
 	height: 100%;
 	overflow-y: scroll; /* Display vertical scrollbar at all times to prevent a jumpy page. */
-	scroll-behavior: smooth;
+	scrollbar-gutter: stable; /* we can have the UA always show the Scrollbar Gutter, even if the box is not overflowing and no scrollbar is shown. This way we have a visually stable layout: when the box starts to overflow the scrollbar will be rendered but no layout shift will happen as space for it was already reserved. */
 	-webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
-	    -ms-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in IE on Windows Phone */
 	        text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes */
 	//word-break: break-word; /* Breaks words to prevent overflow in all browsers (opinionated). */
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Change the default tap highlight to be completely transparent in iOS. */
 	//-webkit-tap-highlight-color: transparent; /* Remove gray overlay on links for iOS. */
 
-	/* Disable smooth scrolling when users have prefers-reduced-motion enabled */
-	@media screen and (prefers-reduced-motion: reduce) {
-		scroll-behavior: auto;
+	-moz-tab-size: 4; /* Use a 4-space tab width in all browsers */
+	     tab-size: 4; /* Use a 4-space tab width in all browsers */
+
+	/* Set core root defaults */
+	&:focus-within {
+		scroll-behavior: smooth;
 	}
 }
 
@@ -40,14 +42,11 @@ body {
 	line-height: $line-height-base;
 	//min-height: 100%;  /*  Ensure the body element's `min-height` is at least the viewport height. */
 	min-height: 100vh;  /*  Ensure the body element's `min-height` is at least the viewport height. */
-	//min-height: -webkit-fill-available; /* mobile viewport bug fix */
 	overflow-x: hidden;
 	position: relative;
 
 	/* Animation setting */
-	/*
-	transition: all @animation-speed ease-in-out ;
-	*/
+	//transition: all @animation-speed ease-in-out ;
 
 	/* Better font rendering. */
 	-moz-osx-font-smoothing: grayscale;
@@ -62,15 +61,17 @@ body {
 	//text-shadow: #fff 0px 1px 1px;
 }
 
-/* Avoid Chrome to see Safari hack */
+/**
+ * Avoid Chrome to see Safari hack
+ */
 @supports (-webkit-touch-callout: none) {
 	body {
 		/* The hack for Safari */
 		height: -webkit-fill-available;
 	}
 }
+
 p,
-//div,
 table,
 pre,
 .wysiwyg-content ul,
@@ -82,9 +83,7 @@ address,
 }
 
 hr {
-	box-sizing: content-box; /* Add the correct box sizing in Firefox. */
-	height: 0; /* Add the correct sizing in Firefox. */
-	overflow: visible; /* Show the overflow in Edge and IE. */
+	height: 0;
 }
 
 pre,

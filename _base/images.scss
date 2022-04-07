@@ -3,8 +3,7 @@
 }
 
 img {
-	-ms-interpolation-mode: bicubic; /* For IE. – https://css-tricks.com/ie-fix-bicubic-scaling-for-images/ */
-
+	image-rendering: -webkit-optimize-contrast; /* Fixing blurry images */
 	/* Only render when in viewport */
 	//content-visibility: auto;
 
@@ -31,10 +30,6 @@ svg {
 	&:not([fill]),
 	& *:not([fill]) {
 		fill: currentColor; /* Change the fill color to match the text color in all browsers (opinionated). */
-	}
-
-	&:not(:root) {
-		overflow: hidden; /* Hide the overflow in IE. */
 	}
 }
 
