@@ -1,0 +1,147 @@
+:where(h1, .h1, h2, .h2, h3, .h3, h4, .h4) {
+	color: $text-color;
+	display: block;
+	font-weight: 600;
+	text-wrap: balance;
+}
+
+h1, .h1 {
+
+	+ h2, + .h2 {
+
+	}
+}
+
+h2, .h2 {
+
+	+ h3, + .h3 {
+
+	}
+}
+
+h3, .h3 {
+
+	+ h4, + .h4 {
+
+	}
+}
+
+h4, .h4 {
+
+}
+
+p {
+	text-wrap: pretty;
+}
+
+.perex {
+
+}
+
+b,
+strong,
+.strong {
+	font-weight: 700; /* Add the correct font weight in Chrome, Edge, and Safari. */
+}
+
+/* Baseline for default links */
+//a:not([class]) {
+a {
+	background-color: transparent; /* Remove the gray background on active links in IE 10. */
+	//color: currentColor;
+	color: $link-color;
+	//outline: 0; /* remember to define focus styles! */
+	text-decoration: underline;
+	transition: all $animation-speed ease-in-out;
+
+	&:visited {
+
+	}
+
+	@include focus() {
+
+		&:hover {
+
+		}
+	}
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:not([class]) {
+		text-decoration-skip-ink: auto;
+	}
+
+	[href*="//"] {
+		&:not([href*="yourwebsite.com"]) {
+
+		}
+	}
+}
+
+.address {
+	font-style: normal;
+}
+
+/*
+ * Text selections.
+ */
+/*
+::selection {
+	background-color: #b3d4fc; !* Restore the coloring undone by defining the text shadow all browsers (opinionated). *!
+	color: #000; !* Restore the coloring undone by defining the text shadow all browsers (opinionated). *!
+	text-shadow: none;
+}
+*/
+
+
+/*
+ * Text index
+ */
+sub, sup {
+	font-size: percentage(2 / 3);
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -.25em;
+}
+
+sup {
+	top: -.75em;
+}
+
+/* Use OpenType sup and sub features */
+// TODO - https://codepen.io/scottkellum/pen/jOvGJEq/5da5646b264d73c2f1d950d4c2b50bb3
+/*
+sup {
+	vertical-align: baseline;
+	font-feature-settings: "sups";
+	font-size: 1em;
+}
+sub {
+	vertical-align: baseline;
+	font-feature-settings: "subs";
+	font-size: 1em;
+}
+*/
+
+
+blockquote, q {
+	quotes: none;
+
+	&:before, &:after {
+		content: '';
+	}
+}
+
+small {
+	font-size: percentage(5 / 6); /* Add the correct font size in all browsers. */
+}
+
+del {
+	text-decoration: line-through;
+}

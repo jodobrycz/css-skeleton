@@ -1,0 +1,84 @@
+html, body {
+	scroll-padding-block-start: 5rem;
+}
+
+body {
+	accent-color: hsl(270deg 50% var(--l)); // TODO
+	color: $text-color;
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	font-weight: 400;
+	line-height: $line-height-base;
+}
+
+p,
+table,
+pre,
+.content ul,
+.content ol,
+address,
+.address,
+.horizontal-scroll-container {
+	margin-block-end: 1.5lh;
+}
+
+
+
+pre,
+code,
+kbd,
+samp {
+	@include scrollbar();
+
+	font-family: monospace, monospace; /* Correct the inheritance and scaling of font size in all browsers. */
+	overflow: auto;
+	white-space: pre-wrap;
+	word-wrap: normal;
+
+	-moz-tab-size: 4; /* Use a x-space tab width in all browsers (opinionated). */
+	     tab-size: 4; /* Use a x-space tab width in all browsers (opinionated). */
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+	position: relative;
+	text-decoration: none;
+
+	@include hover() {
+		&:after {
+			background-color: $color-white;
+			block-size: auto;
+			border: .1rem solid #767676;
+			box-shadow: 0 0 .5rem 0 rgba(0, 0, 0, 0.4);
+			color: $text-color;
+			content: attr(title);
+			font-size: .75em;
+			inset-block-start: 100%;
+			inset-inline-start: 50%;
+			padding-block: .3rem;
+			padding-inline: .5rem;
+			position: absolute;
+			transform: translateX(-50%);
+			white-space: nowrap;
+		}
+	}
+
+	@include focus() {
+		&:after {
+			background-color: $color-white;
+			block-size: auto;
+			border: .1rem solid #767676;
+			box-shadow: 0 0 .5rem 0 rgba(0, 0, 0, 0.4);
+			color: $text-color;
+			content: attr(title);
+			font-size: .75em;
+			inset-block-start: 100%;
+			inset-inline-start: 50%;
+			padding-block: .3rem;
+			padding-inline: .5rem;
+			transform: translateX(-50%);
+			white-space: nowrap;
+		}
+	}
+}

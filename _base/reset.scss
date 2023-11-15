@@ -1,0 +1,158 @@
+/*
+!*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ *!
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+*/
+
+/* Box sizing rules */
+* {
+	background-color: transparent; /* As a best practice, apply a default `background-color`. */
+	border: 0;
+	box-sizing: border-box; /* Add border box sizing in all browsers (opinionated). */
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+
+	&:before,
+	&:after {
+		box-sizing: inherit;
+		text-decoration: inherit; /* Add text decoration inheritance in all browsers (opinionated). */
+		vertical-align: inherit; /* Add vertical alignment inheritance in all browsers (opinionated). */
+	}
+
+	> *:first-child {
+		margin-block-start: 0;
+	}
+
+	&:not(.content):not(.a11y-modal):not(.a11y-tabs__panel) {
+		> *:last-child {
+			&:not(.h1):not(.landmark--aside) {
+				margin-block-end: 0;
+			}
+		}
+	}
+}
+
+html {
+	//cursor: default; /* Use the default cursor in all browsers (opinionated). */
+	block-size: 100%;
+	font-size: 62.5%; /* This will set all REM to 10 px */
+	overflow-y: scroll; /* Display vertical scrollbar at all times to prevent a jumpy page. */
+	scrollbar-gutter: stable; /* we can have the UA always show the Scrollbar Gutter, even if the box is not overflowing and no scrollbar is shown. This way we have a visually stable layout: when the box starts to overflow the scrollbar will be rendered but no layout shift will happen as space for it was already reserved. */
+	-webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
+	text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes */
+	//word-break: break-word; /* Breaks words to prevent overflow in all browsers (opinionated). */
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Change the default tap highlight to be completely transparent in iOS. */
+
+	/* Smooth scrolling for users that don't prefer reduced motion */
+	&:focus-within {
+		@media (prefers-reduced-motion: no-preference) {
+			scroll-behavior: smooth;
+		}
+	}
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-block-size: 100vh;  /*  Ensure the body element's `min-height` is at least the viewport height. */
+	//min-block-size: 100dvb;  /*  Ensure the body element's `min-height` is at least the viewport height. */
+	overflow-x: hidden;
+	position: relative;
+
+	/* Better font rendering. */
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+/* Avoid Chrome to see Safari hack */
+@supports (-webkit-touch-callout: none) {
+	body {
+		block-size: -webkit-fill-available;
+	}
+}
+
+/* Avoid text overflows */
+:where(p, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
+	overflow-wrap: break-word;
+}
+
+:where(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
+	text-wrap: balance;
+}
+
+/* Prevent this elements from spilling outside of the page on smaller screens */
+:where(img, iframe, input, select, svg, textarea, video) {
+	max-inline-size: 100%;
+}
+
+/* Improve media defaults */
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
+	display: block;
+}
+
+:where(img, video) {
+	block-size: auto;
+	max-inline-size: 100%;
+}
+
+/* Make it clear that interactive elements are interactive */
+:where(a[href], area, button, input, label[for], select, summary, textarea, [tabindex]:not([tabindex*="-"])) {
+	cursor: pointer;
+	touch-action: manipulation;
+}
+
+:where(input[type="file"]) {
+	cursor: auto;
+
+	&::-webkit-file-upload-button,
+	&::file-selector-button {
+		cursor: pointer;
+	}
+}
+
+/* Remove the tapping delay on clickable elements in all browsers (opinionated). */
+:where(a, area, button, input, label, select, summary, textarea, [tabindex]) {
+	touch-action: manipulation;
+}
+
+/* Disabled cursor for disabled buttons */
+:where(button, input[type="button"], input[type="submit"], input[type="reset"])[disabled] {
+	cursor: not-allowed;
+}
+
+hr {
+	block-size: 0;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	/*
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+    */
+
+	*,
+	*::before,
+	*::after {
+		animation-delay: -1ms !important;
+		animation-duration: .01ms !important;
+		animation-iteration-count: 1 !important;
+		background-attachment: initial !important;
+		//scroll-behavior: auto !important;
+		transition-delay: 0s !important;
+		transition-duration: .01s !important;
+	}
+}

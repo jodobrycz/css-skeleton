@@ -1,0 +1,49 @@
+:where(ul, ol) {
+	//list-style-type: none;
+	list-style-type: "";
+}
+
+:where(li) {
+	position: relative;
+}
+
+:where(.content, .presentation) {
+	ul,
+	ol {
+		ul,
+		ol {
+			@include logical-properties(margin, 1rem, 0, 1rem, 1rem);
+		}
+	}
+
+	li {
+		text-wrap: pretty;
+
+		&::marker {
+			color: $color-foxtrot;
+			font-weight: 700;
+		}
+
+		&:not(:last-of-type) {
+			margin-block-end: calc(var(--line-height) * 1em);
+		}
+	}
+
+	ul {
+		li {
+			&::marker {
+				content: "—";
+			}
+		}
+	}
+
+	ol {
+		counter-reset: my-list-counter;
+
+		> li {
+			&::marker {
+				content: counter(list-item) ".";
+			}
+		}
+	}
+}

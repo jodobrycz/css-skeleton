@@ -1,0 +1,42 @@
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	inline-size: 100%;
+}
+
+caption {
+	caption-side: top;
+	text-align: start;
+}
+
+td,
+th {
+	padding-block: 1rem;
+	text-align: start;
+	vertical-align: top;
+
+	&:not(:last-child) {
+		padding-inline-end: 2rem;
+	}
+
+	.table--description & {
+		vertical-align: middle;
+	}
+}
+
+th {
+	font-weight: 700;
+}
+
+thead {
+	th {
+		vertical-align: bottom;
+	}
+}
+
+.table-nowrap {
+	th,
+	td {
+		white-space: nowrap;
+	}
+}

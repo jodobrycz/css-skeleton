@@ -1,0 +1,17 @@
+$fontTimestamp: '/ver/202308281325';
+
+@font-face {
+  font-family: "Raleway-fallback";
+  size-adjust: 109%;
+  ascent-override: 88%;
+  descent-override: 16%;
+  line-gap-override: normal;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+  src: url('#{$fontTimestamp}/fonts/raleway/raleway-500.woff2') format('woff2');
+}

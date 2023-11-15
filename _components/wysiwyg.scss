@@ -1,0 +1,7 @@
+.wysiwyg-content {
+	@include clearfix();
+
+	li {
+		text-wrap: pretty;
+	}
+}

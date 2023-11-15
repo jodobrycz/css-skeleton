@@ -1,0 +1,83 @@
+// Media queries breakpoints
+// --------------------------------------------------
+
+/**
+ * Define the breakpoints at which your layout will change, adapting to different screen sizes.
+ */
+$grid-breakpoints: (
+	xxs: 0,
+	 xs: 20em, // 320px
+	 sm: 30em, // 480px
+	 md: 48em, // 768px
+	 lg: 62em, // 992px
+	 xl: 75em  // 1200px
+);
+
+/**
+ * Define the maximum width of `.container` for different screen sizes.
+ */
+//$container-max-widths: (
+//	md: 720px, //740
+//	lg: 960px, // 960
+//	xl: 1140px //1170
+//);
+$container-max-widths: (
+	md: 75rem,
+	lg: 97rem,
+	xl: 117rem
+);
+
+/**
+ * Define z-index.
+ */
+$zindex: (
+	a: 10,
+	b: 20,
+	c: 30,
+	d: 40,
+	e: 50
+);
+
+// Grid system
+// --------------------------------------------------
+
+// Define your custom responsive grid.
+//$grid-gutter-width:         40px;
+//$grid-gutter-width:         30px;
+$grid-gutter-width:         3rem;
+
+
+
+// Fonts
+// --------------------------------------------------
+$font-family-base:           serif;
+$font-size-base:             2rem;
+$line-height-base:           1.6;
+
+
+
+// Colors
+// --------------------------------------------------
+$brand-primary:              #00136f;
+$text-color:                 #3e3e3e;
+$link-color:                 $brand-primary;
+$color-white:                #fff;
+$color-gray:                 #c0c0c0;
+
+$burger-line:                #4a5050;
+
+
+
+// Scrollbar
+// --------------------------------------------------
+$scrollbar-dimension:        .8rem;
+$scrollbar-track-color:       transparent;
+$scrollbar-thumb-color:       rgba(0, 0, 0, 0.3);
+$scrollbar-radius:            .4rem;
+
+
+
+// Other
+// --------------------------------------------------
+$animation-speed:            .25s;
+$max-container-width:        100%;

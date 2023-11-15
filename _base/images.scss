@@ -1,0 +1,36 @@
+.responsive-image {
+	@include responsive-image();
+}
+
+:where(img) {
+	/* Only render when in viewport */
+	//content-visibility: auto;
+
+	.wysiwyg-content & {
+		@include responsive-image();
+	}
+
+	a & {
+		.wysiwyg-content & {
+			display: inline-block;
+		}
+	}
+}
+
+:where(svg) {
+	@include svg-icon-fill();
+
+	/*
+	&:not([fill]),
+	& *:not([fill]) {
+	  fill: currentColor; !* Change the fill color to match the text color in all browsers (opinionated). *!
+	}
+	*/
+}
+
+/*
+// neosvědčilo se
+img[src$='.svg'] {
+	min-width: 100%; !* Super handy as SVG <img> won’t fill the width if they’ve just got `max-width: 100%` on them. *!
+}
+*/

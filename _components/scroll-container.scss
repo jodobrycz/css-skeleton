@@ -1,0 +1,6 @@
+.horizontal-scroll-container {
+	@include scrollbar();
+
+	overflow: auto;
+	padding-block-end: 1rem;
+}

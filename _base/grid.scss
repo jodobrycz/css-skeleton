@@ -1,0 +1,102 @@
+/**
+ * Minimum breakpoint width. Null for the smallest (first) breakpoint.
+ */
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+	$min: map-get($breakpoints, $name);
+	@return if($min != 0, $min, null);
+}
+
+/**
+ * Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+ * Makes the @content apply to the given breakpoint and wider.
+ */
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($name, $breakpoints);
+	@if $min {
+		@media (min-width: $min) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+/**
+ * Centered container element
+ */
+@mixin make-container($gutter: $grid-gutter-width) {
+	inline-size: 100%;
+	margin-inline: auto;
+	padding-inline: $gutter / 2;
+
+	/*
+	@include screen-md() {
+		padding-inline: $gutter;
+	}
+	*/
+}
+
+/**
+ * For each breakpoint, define the maximum width of the container in a media query
+ */
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+	@each $breakpoint, $container-max-width in $max-widths {
+		@include media-breakpoint-up($breakpoint, $breakpoints) {
+			max-inline-size: $container-max-width;
+		}
+	}
+}
+
+
+@mixin make-row($gutter: $grid-gutter-width) {
+	display: flex;
+	flex-wrap: wrap;
+	margin-inline: -$gutter / 2;
+
+	/*
+	@include screen-md() {
+		margin-inline: -$gutter;
+	}
+	*/
+}
+
+@mixin make-col-ready($gutter: $grid-gutter-width) {
+	position: relative;
+	// Prevent columns from becoming too narrow when at smaller grid tiers by
+	// always setting `width: 100%;`. This works because we use `flex` values
+	// later on to override this initial width.
+	inline-size: 100%;
+	padding-inline: $gutter / 2;
+
+	/*
+	@include screen-md() {
+		padding-inline: $gutter;
+	}
+	*/
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+	flex: 0 0 percentage($size / $columns);
+	// Add a `max-width` to ensure content within each column does not blow out
+	// the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+	// do not appear to require this.
+	max-inline-size: percentage($size / $columns);
+}
+
+/**
+ * Container widths
+ * Set the container width, and override it for fixed navbars in media queries.
+ */
+.container {
+	@include make-container();
+	@include make-container-max-widths();
+}
+
+/**
+ * Fluid container
+ * Utilizes the mixin meant for fixed width containers, but with 100% width for fluid, full width layouts.
+ */
+.container-fluid {
+	@include make-container();
+	//max-inline-size: #{map-get($container-max-widths, xl)}
+}
