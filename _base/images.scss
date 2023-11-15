@@ -3,8 +3,9 @@
 }
 
 :where(img) {
-	/* Only render when in viewport */
-	//content-visibility: auto;
+    image-rendering: -webkit-optimize-contrast; /* Fixing blurry images */
+    /* Only render when in viewport */
+    //content-visibility: auto;
 
 	.wysiwyg-content & {
 		@include responsive-image();
