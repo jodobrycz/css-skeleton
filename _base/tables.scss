@@ -18,10 +18,6 @@ th {
 	&:not(:last-child) {
 		padding-inline-end: 2rem;
 	}
-
-	.table--description & {
-		vertical-align: middle;
-	}
 }
 
 th {
