@@ -1,7 +1,16 @@
+/*
+h2 + * {
+	margin-block-start: 0.5rem;
+}
+p + * {
+	margin-block-start: 1.5rem;
+}
+*/
+
 :where(h1, .h1, h2, .h2, h3, .h3, h4, .h4) {
 	color: $text-color;
 	display: block;
-	font-weight: 600;
+	font-weight: 700;
 	text-wrap: balance;
 }
 
@@ -45,12 +54,9 @@ strong,
 }
 
 /* Baseline for default links */
-//a:not([class]) {
 a {
 	background-color: transparent; /* Remove the gray background on active links in IE 10. */
-	//color: currentColor;
 	color: $link-color;
-	//outline: 0; /* remember to define focus styles! */
 	text-decoration: underline;
 	transition: all $animation-speed ease-in-out;
 
@@ -60,17 +66,37 @@ a {
 
 	@include focus() {
 
-		&:hover {
+		@include hover() {
 
 		}
 	}
 
-	&:hover {
+	@include hover() {
 		text-decoration: none;
 	}
 
 	&:not([class]) {
 		text-decoration-skip-ink: auto;
+	}
+
+	// odkaz na externí web
+	&[href^='http'] {
+		display: inline-table;
+		padding-inline-end: calc(1.25em);
+		position: relative;
+
+		&:after {
+			aspect-ratio: 1;
+			background-color: currentColor;
+			block-size: 1em;
+			content: '';
+			display: inline-block;
+			inline-size: auto;
+			mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewbox='0 0 16 16' width='16' height='16'%3E%3Cpath d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5'/%3E%3Cpath d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z'/%3E%3C/svg%3E");
+			mask-size: cover;
+			position: absolute;
+			transform: translate(.25em, .3em);
+		}
 	}
 
 	[href*="//"] {
@@ -85,9 +111,6 @@ a {
 }
 
 /*
- * Text selections.
- */
-/*
 ::selection {
 	background-color: #b3d4fc; !* Restore the coloring undone by defining the text shadow all browsers (opinionated). *!
 	color: #000; !* Restore the coloring undone by defining the text shadow all browsers (opinionated). *!
@@ -97,38 +120,61 @@ a {
 
 
 /*
- * Text index
+ * Text index - superscripts and subscripts
  */
 sub, sup {
-	font-size: percentage(2 / 3);
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
+  font-size: 56%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sub {
-	bottom: -.25em;
+  inset-block-end: -.25em;
 }
 
 sup {
-	top: -.75em;
+  inset-block-start: -.75em;
 }
 
-/* Use OpenType sup and sub features */
-// TODO - https://codepen.io/scottkellum/pen/jOvGJEq/5da5646b264d73c2f1d950d4c2b50bb3
 /*
-sup {
-	vertical-align: baseline;
-	font-feature-settings: "sups";
-	font-size: 1em;
+@supports (font-variant-position: super) {
+  sup {
+    font-size: 1em;
+    font-variant-position: super;
+    //line-height: inherit;
+    vertical-align: baseline;
+  }
 }
-sub {
-	vertical-align: baseline;
-	font-feature-settings: "subs";
-	font-size: 1em;
+
+@supports (font-variant-position: sub) {
+  sub {
+    font-size: 1em;
+    font-variant-position: sub;
+    //line-height: inherit;
+    vertical-align: baseline;
+  }
 }
 */
 
+
+/*
+@supports (font-feature-settings: "sups") {
+  sup {
+    font-feature-settings: "sups";
+    font-size: 1em;
+    vertical-align: baseline;
+  }
+}
+
+@supports (font-feature-settings: "subs") {
+  sub {
+    font-feature-settings: "subs";
+    font-size: 1em;
+    vertical-align: baseline;
+  }
+}
+*/
 
 blockquote, q {
 	quotes: none;

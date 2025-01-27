@@ -1,8 +1,5 @@
 @charset "utf-8";
-/*
-	KMU TESTING
-	Author URI: https://www.fg.cz/
-*/
+@layer base, layout, components, pages, vendors, development;
 
 @import "_abstracts/abstracts";
 @import "_base/base";

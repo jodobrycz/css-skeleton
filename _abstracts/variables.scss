@@ -5,12 +5,12 @@
  * Define the breakpoints at which your layout will change, adapting to different screen sizes.
  */
 $grid-breakpoints: (
-				xxs: 0,
-				xs: 20em, // 320px
-				sm: 30em, // 480px
-				md: 48em, // 768px
-				lg: 62em, // 992px
-				xl: 75em  // 1200px
+	xxs: 0,
+	xs: 20em, // 320px
+	sm: 30em, // 480px
+	md: 48em, // 768px
+	lg: 62em, // 992px
+	xl: 75em  // 1200px
 );
 
 /**
@@ -31,11 +31,11 @@ $container-max-widths: (
  * Define z-index.
  */
 $zindex: (
-				a: 10,
-				b: 20,
-				c: 30,
-				d: 40,
-				e: 50
+	a: 10,
+	b: 20,
+	c: 30,
+	d: 40,
+	e: 50
 );
 
 // Grid system
@@ -77,7 +77,19 @@ $scrollbar-radius:            .4rem;
 
 
 
+// Outline
+// --------------------------------------------------
+$outline-width:               2px;
+$outline-offset:              4px;
+
+
 // Other
 // --------------------------------------------------
 $animation-speed:            .25s;
 $max-container-width:        100%;
+
+body {
+	interpolate-size: allow-keywords;
+
+	--gap:                             20px;
+}

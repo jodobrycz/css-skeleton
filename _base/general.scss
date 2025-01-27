@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-	accent-color: hsl(270deg 50% var(--l)); // TODO
+	accent-color: $color-alpha;
 	color: $text-color;
 	font-family: $font-family-base;
 	font-size: $font-size-base;
@@ -14,8 +14,8 @@ body {
 p,
 table,
 pre,
-.content ul,
-.content ol,
+.wysiwyg-content ul,
+.wysiwyg-content ol,
 address,
 .address,
 .horizontal-scroll-container {
@@ -81,4 +81,8 @@ abbr[title] {
 			white-space: nowrap;
 		}
 	}
+}
+
+.clearfix {
+	display: flow-root;
 }

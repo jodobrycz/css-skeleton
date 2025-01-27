@@ -1,1 +1,37 @@
-# css-skeleton
+# Zdroje
+- https://meyerweb.com/eric/tools/css/reset/
+- https://github.com/necolas/normalize.css / https://necolas.github.io/normalize.css/
+- https://github.com/csstools/sanitize.css
+- https://zellwk.com/blog/css-reset/
+- https://github.com/twbs/bootstrap/blob/v4-dev/scss/_reboot.scss
+- https://pineco.de/a-brief-about-css-reset-and-normalize/
+- https://bitsofco.de/my-css-reset-base/
+- https://html5doctor.com/html-5-reset-stylesheet/
+- https://csswizardry.com/2011/10/reset-restarted/
+- https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css
+- https://gist.github.com/Asjas/4b0736108d56197fce0ec9068145b421
+- https://github.com/Andy-set-studio/modern-css-reset/blob/master/dist/reset.css
+- https://www.ellyloel.com/projects/modern-css-reset/
+- https://piccalil.li/blog/a-more-modern-css-reset/
+- https://medium.com/appwrite-io/css-layers-for-css-resets-f60f270aa1cd
+- https://www.joshwcomeau.com/css/custom-css-reset/
+
+
+- https://github.com/Martin-Pitt/css-unstyle
+- https://raw.githubusercontent.com/shankariyerr/tinyreset/master/tinyreset.min.css / https://tinyreset.surge.sh
+- https://github.com/filipelinhares/ress
+- https://perishablepress.com/a-killer-collection-of-global-css-reset-styles/
+- https://perishablepress.com/cssresetr/
+- https://github.com/sindresorhus/modern-normalize / https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css
+- https://github.com/tiaanduplessis/nanoreset
+- https://github.com/niksy/rationalize.css
+- https://github.com/vladocar/CSS-Micro-Reset
+- https://ehtmlu.com/blog/a-simple-css-reset/
+- https://nicolas-cusan.github.io/destyle.css/
+- https://github.com/joshuarudd/typeset.css
+- https://www.webfx.com/blog/web-design/a-comprehensive-guide-to-css-resets/
+- https://www.webfx.com/blog/web-design/should-you-reset-your-css/
+- https://gist.github.com/EllyLoel/4ff8a6472247e6dd2315fd4038926522
+- https://segmentfault.com/a/1190000041700998/en
+- https://jgthms.com/minireset.css/ / https://github.com/jgthms/minireset.css
+- https://www.webfx.com/blog/web-design/the-history-of-css-resets/

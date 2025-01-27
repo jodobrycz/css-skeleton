@@ -1,1 +1,7 @@
 //@import "grid";
+@layer layout {
+  .wrapper {
+    inline-size: Min(116rem, calc(100vw - 4rem));
+    margin-inline: auto;
+  }
+}

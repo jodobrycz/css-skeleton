@@ -61,29 +61,45 @@
 	white-space: nowrap;
 }
 
-/* scrollbar */
-@mixin scrollbar($scrollbar-dimension: $scrollbar-dimension, $scrollbar-radius: $scrollbar-radius) {
-	/* Firefox */
-	scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color; /* thumb and track color */
-	scrollbar-width: thin; /* value: none, thin, auto */
-
-	/* Webkit - Chrome */
-	&::-webkit-scrollbar {
-		-webkit-appearance: none;
-		block-size: $scrollbar-dimension;
-		inline-size: $scrollbar-dimension;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		background-color: $scrollbar-thumb-color;
-		border-radius: $scrollbar-radius;
-	}
-
-	&::-webkit-scrollbar-track {
-		background-color: $scrollbar-track-color;
-	}
+@mixin outline($color: $color-bravo, $width: $outline-width, $offset: $outline-offset) {
+	outline: $width solid $color;
+	outline-offset: $offset;
 }
 
+@mixin transition($property: all) {
+	transition: $property $animation-speed ease-in-out;
+}
+
+/* scrollbar */
+@mixin scrollbar($scrollbar-dimension: $scrollbar-dimension, $scrollbar-radius: $scrollbar-radius) {
+	@supports (scrollbar-width: auto) {
+		scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color; /* thumb and track color */
+		scrollbar-width: thin; /* value: none, thin, auto */
+	}
+
+	//@supports selector(::-webkit-scrollbar) {
+		&::-webkit-scrollbar {
+			-webkit-appearance: none;
+			block-size: $scrollbar-dimension;
+			inline-size: $scrollbar-dimension;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $scrollbar-thumb-color;
+			border-radius: $scrollbar-radius;
+		}
+
+		&::-webkit-scrollbar-track {
+			background-color: $scrollbar-track-color;
+		}
+	//}
+}
+
+@mixin hover() {
+	&:hover {
+		@content;
+	}
+}
 
 /* add focus */
 @mixin focus() {
@@ -93,7 +109,6 @@
 		@content;
 	}
 }
-
 
 /* placeholder */
 @mixin placeholder {

@@ -1,33 +1,32 @@
 .skip {
-  background: $color-white;
-  border: .1rem dotted $text-color;
-  left: 0;
-  outline: 0;
+  inline-size: 100%;
+  position: absolute;
+}
+
+.skip__list {
+
+}
+
+.skip__item {
+
+}
+
+.skip__link {
+  @include transition(transform);
+  inset-block-start: 0;
+  inset-inline: 0;
   position: fixed;
-  padding: 1rem;
-  right: 0;
   text-align: center;
   text-decoration: none;
-  top: 0;
-  transform: translate(0%, -100%);
-  transition: transform .25s ease-in-out;
-  z-index: 999;
+  transform: translate(0, -100%);
+  z-index: #{map-get($zindex, skip)};
 
   &:focus {
-    transform: translate(0%, 0%);
+    outline: 0;
+    transform: translate(0, 0);
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
-
-//class="skip-link visually-hidden-focusable"
-/*
-.skip-link {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  background-color: rebeccapurple;
-  font-weight: bold;
-  width: fit-content;
-  padding: 0.5rem 1rem;
-  color: whitesmoke;
-}
-*/

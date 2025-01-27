@@ -1,7 +1,9 @@
-.env-development {
-	@import "rwd-identifier";
-	//@import "rwd-viewport-half";
-	//@import "debug";
-	@import "debug-grid";
+@layer development {
+	.env-development {
+		@import "rwd-identifier";
+		//@import "rwd-viewport-half";
+		//@import "debug";
+		@import "debug-grid";
+	}
 }
 

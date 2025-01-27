@@ -1,12 +1,14 @@
-@import "reset";
-//@import "fonts";
-@import "general";
-@import "utilities";
-@import "grid";
-@import "typography";
-@import "lists";
-@import "images";
-@import "tables";
+@layer base {
+  @import "reset";
+  //@import "fonts";
+  @import "general";
+  @import "utilities";
+  @import "grid";
+  @import "typography";
+  @import "lists";
+  @import "images";
+  @import "tables";
+  //@import "buttons";
+  //@import "forms";
+}
 
-//@import "buttons";
-//@import "forms";

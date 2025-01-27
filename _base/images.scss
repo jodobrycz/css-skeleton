@@ -16,6 +16,13 @@
 			display: inline-block;
 		}
 	}
+
+	#main & {
+		block-size: auto;
+		display: block;
+		max-inline-size: 100%;
+		vertical-align: middle; /* Remove the gap between <img> elements and the bottom of their */
+	}
 }
 
 :where(svg) {

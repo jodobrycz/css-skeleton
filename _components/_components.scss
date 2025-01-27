@@ -1,4 +1,6 @@
-@import "noscript-warning";
-@import "wysiwyg";
-@import "scroll-container";
-//@import "tinymce";
+@layer components {
+  @import "noscript-warning";
+  @import "wysiwyg";
+  @import "scroll-container";
+  //@import "tinymce";
+}
