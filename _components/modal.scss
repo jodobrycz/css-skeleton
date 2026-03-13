@@ -3,3 +3,30 @@
   //overscroll-behavior-y: contain;
   overscroll-behavior-y: none;
 }
+
+:where(html:has(dialog:modal[open])) {
+  overflow: clip;
+}
+
+
+dialog::backdrop {
+  background: oklch(0% 0 0 / 0.3);
+}
+
+dialog, [popover],
+dialog::backdrop {
+  opacity: 0;
+  transition: opacity 300ms ease-out, display 300ms allow-discrete, overlay 300ms allow-discrete;
+}
+
+dialog[open], :popover-open,
+dialog[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  dialog[open], :popover-open,
+  dialog[open]::backdrop {
+    opacity: 0;
+  }
+}

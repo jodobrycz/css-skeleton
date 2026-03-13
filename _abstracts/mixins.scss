@@ -51,20 +51,20 @@
 
 @mixin visually-hidden() {
 	block-size: 1px;
-	border: 0;
-	clip: rect(0, 0, 0, 0);
+	clip-path: inset(100%);
+	clip: rect(1px, 1px, 1px, 1px);
 	inline-size: 1px;
-	margin: -1px;
 	overflow: hidden;
-	padding: 0;
 	position: absolute;
 	white-space: nowrap;
 }
 
-@mixin outline($color: $color-bravo, $width: $outline-width, $offset: $outline-offset) {
-	outline: $width solid $color;
+@mixin outline($color: currentColor, $colorOutline: currentColor, $width: $outline-width, $offset: $outline-offset) {
+	color: $color;
+	outline: $width solid $colorOutline;
 	outline-offset: $offset;
 }
+
 
 @mixin transition($property: all) {
 	transition: $property $animation-speed ease-in-out;

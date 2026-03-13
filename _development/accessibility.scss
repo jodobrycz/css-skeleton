@@ -1,0 +1,44 @@
+/* Highliting accessibility errors in HTML */
+
+/* highlight HTML element with invalid value for lang attribute */
+html:not([lang]),
+html[lang=""] {
+  border: 2px dotted red !important;
+}
+
+/*  highlight images missing alt text */
+img:not([alt]) {
+  filter: blur(5px) !important;
+}
+
+/* highlight on all elements that are inside of lists but not a list item <li> and displays them with a red outline.*/
+:is(ul, ol) > *:not(li) {
+  outline: 2px dotted red !important;
+}
+
+/* highlight on links without valid href attribute */
+a:not([href]),
+a[href="#"],
+a[href=""],
+a[href*="javascript:void(0)"] {
+  outline: 2px dotted red !important;
+}
+
+/* highlights label with invalid for attribute */
+label:not([for]),
+label[for="#"],
+label[for=""] {
+  border: 2px dotted red !important;
+}
+
+/* Avoids div buttons from hell. More details in https://www.htmhell.dev/2-div-with-button-role/ */
+div[role="button"] {
+  color: red;
+  text-decoration: blink !important;
+}
+
+/* highlight on empty anchors/buttons */
+button:empty,
+a:empty {
+  border: 2px dotted red !important;
+}

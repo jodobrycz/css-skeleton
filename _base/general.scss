@@ -9,16 +9,24 @@ body {
 	font-size: $font-size-base;
 	font-weight: 400;
 	line-height: $line-height-base;
+
+	* {
+		&:focus-visible {
+			@include outline();
+		}
+	}
 }
 
-p,
-table,
-pre,
-.wysiwyg-content ul,
-.wysiwyg-content ol,
-address,
-.address,
-.horizontal-scroll-container {
+:where(
+	p,
+	table,
+	pre,
+	.wysiwyg-content ul,
+	.wysiwyg-content ol,
+	address,
+	.address,
+	.horizontal-scroll-container
+) {
 	margin-block-end: 1.5lh;
 }
 
@@ -31,6 +39,7 @@ samp {
 	@include scrollbar();
 
 	font-family: monospace, monospace; /* Correct the inheritance and scaling of font size in all browsers. */
+	font-variant-numeric: slashed-zero;
 	overflow: auto;
 	white-space: pre-wrap;
 	word-wrap: normal;
@@ -44,6 +53,11 @@ abbr[title] {
 	cursor: help;
 	position: relative;
 	text-decoration: none;
+
+	/*
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+	*/
 
 	@include hover() {
 		&:after {

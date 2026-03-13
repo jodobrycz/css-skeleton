@@ -34,12 +34,17 @@ html {
   //cursor: default; /* Use the default cursor in all browsers (opinionated). */
   block-size: 100%;
   font-size: 62.5%; /* This will set all REM to 10 px */
+  hanging-punctuation: first allow-end last;
   overflow-y: scroll; /* Display vertical scrollbar at all times to prevent a jumpy page. */
   overflow-wrap: break-word;
   scrollbar-gutter: stable; /* we can have the UA always show the Scrollbar Gutter, even if the box is not overflowing and no scrollbar is shown. This way we have a visually stable layout: when the box starts to overflow the scrollbar will be rendered but no layout shift will happen as space for it was already reserved. */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Change the default tap highlight to be completely transparent in iOS. */
 
   /* Smooth scrolling for users that don't prefer reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    interpolate-size: allow-keywords;
+  }
+
   &:focus-within {
     @media (prefers-reduced-motion: no-preference) {
       scroll-behavior: smooth;
@@ -51,6 +56,10 @@ html {
       scroll-behavior: smooth;
     }
   }
+
+  &.translated-rtl {
+    direction: rtl;
+  }
 }
 
 body {
@@ -58,12 +67,12 @@ body {
   flex-direction: column;
   min-block-size: 100vb; /*  Ensure the body element's `min-height` is at least the viewport height. */
   //min-block-size: 100dvb;  /*  Ensure the body element's `min-height` is at least the viewport height. */
-  //overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
 
   /* Better font rendering. */
-  -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
-          text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes */
+  -webkit-text-size-adjust: none; /* Prevent adjustments of font size after orientation changes in iOS. */
+          text-size-adjust: none  ; /* Prevent adjustments of font size after orientation changes */
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-font-kerning: normal;

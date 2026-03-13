@@ -1,3 +1,13 @@
+:where(input) {
+	:not([type="submit"], [type="checkbox"], [type="radio"], [type="button"], [type="reset"]) {
+		inline-size: 100%;
+	}
+}
+
+input:where([type="tel"], [type="url"], [type="email"], [type="number"]):not(:placeholder-shown) {
+	direction: ltr;
+}
+
 :where(input, textarea, button, select) {
 	//appearance: none; /* Remove controls */
 	background-color: transparent;
@@ -5,6 +15,10 @@
 	font: inherit;
 	letter-spacing: inherit;
 	word-spacing: inherit;
+}
+
+:where(input, textarea) {
+	hanging-punctuation: none;
 }
 
 /* Remove focus outlines from Firefox. */
@@ -16,7 +30,11 @@ select:-moz-focusring {
 }
 
 :where(textarea) {
+	field-sizing: content;
 	form-sizing: auto; /* https://geoffgraham.me/the-csswg-adopted-a-new-css-form-sizing-property/ */
+	inline-size: 100%;
+	min-block-size: 5lh;
+	overflow: auto;
 	resize: vertical;
 }
 
@@ -91,7 +109,7 @@ fieldset {
      * unlike e.g. `<div>`s, which have `min-width: 0;` by default.
      * So we reset that to ensure fieldsets behave more like a standard block element.
      */
-	min-width: 0;
+	min-inline-size: 0;
 }
 
 

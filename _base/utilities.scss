@@ -53,6 +53,10 @@
 	display: none;
 }
 
+:where([hidden]:not([hidden="until-found"])) {
+	display: none;
+}
+
 
 /**
  * Always hide an element with the `hidden` HTML attribute (from PureCSS).
@@ -68,6 +72,8 @@
 	outline: none;
 }
 
+/*
 .number {
 	font-variant-numeric: tabular-nums;
 }
+*/

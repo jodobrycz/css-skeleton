@@ -58,9 +58,9 @@ $line-height-base:           1.6;
 
 // Colors
 // --------------------------------------------------
-$brand-primary:              #00136f;
+$color-brand:                #00136f;
 $text-color:                 #3e3e3e;
-$link-color:                 $brand-primary;
+$link-color:                 $color-brand;
 $color-white:                #fff;
 $color-gray:                 #c0c0c0;
 
@@ -89,7 +89,5 @@ $animation-speed:            .25s;
 $max-container-width:        100%;
 
 body {
-	interpolate-size: allow-keywords;
-
 	--gap:                             20px;
 }
