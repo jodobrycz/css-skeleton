@@ -35,7 +35,8 @@ $zindex: (
 	b: 20,
 	c: 30,
 	d: 40,
-	e: 50
+	e: 50,
+	skip: 600
 );
 
 // Grid system
@@ -45,6 +46,7 @@ $zindex: (
 //$grid-gutter-width:         40px;
 //$grid-gutter-width:         30px;
 $grid-gutter-width:         3rem;
+$grid-columns:              12;
 
 
 

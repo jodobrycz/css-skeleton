@@ -83,6 +83,7 @@ a {
 	}
 
 	// odkaz na externí web
+	//&[href^="http"]:not(.btn, :has(svg)):not([href^="https://domena.cz"], [href^="http://localhost"]) {
 	&[href^='http'] {
 		display: inline-table;
 		padding-inline-end: calc(1.25em);

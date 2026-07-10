@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-	accent-color: $color-alpha;
+	accent-color: currentColor;
 	color: $text-color;
 	font-family: $font-family-base;
 	font-size: $font-size-base;
@@ -95,6 +95,26 @@ abbr[title] {
 			white-space: nowrap;
 		}
 	}
+}
+
+kbd {
+
+}
+
+mark {
+
+}
+
+del {
+
+}
+
+ins {
+
+}
+
+s {
+
 }
 
 .clearfix {

@@ -1,5 +1,5 @@
 - https://www.htmhell.dev/tips/crossed-out-content/
-- 
+
 - https://adactio.com/journal/21896
 
 ```css
