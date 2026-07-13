@@ -1,44 +1,29 @@
 .responsive-image {
-	@include responsive-image();
+  @include responsive-image();
 }
 
 :where(img) {
-	image-rendering: -webkit-optimize-contrast; /* Fixing blurry images */
-	/* Only render when in viewport */
-	//content-visibility: auto;
+  /* Only render when in viewport */
+  //content-visibility: auto;
+  image-rendering: -webkit-optimize-contrast; /* Fixing blurry images */
 
-	.wysiwyg-content & {
-		@include responsive-image();
-	}
+  /*
+  .wysiwyg-content & {
+    @include responsive-image();
+  }
+  */
 
-	a & {
-		.wysiwyg-content & {
-			display: inline-block;
-		}
-	}
+  a & {
+    .wysiwyg-content & {
+      display: inline-flex;
+    }
+  }
 
-	#main & {
-		block-size: auto;
-		display: block;
-		max-inline-size: 100%;
-		vertical-align: middle; /* Remove the gap between <img> elements and the bottom of their */
-	}
+  #main & {
+    @include responsive-image();
+  }
 }
 
 :where(svg) {
-	@include svg-icon-fill();
-
-	/*
-	&:not([fill]),
-	& *:not([fill]) {
-		fill: currentColor; !* Change the fill color to match the text color in all browsers (opinionated). *!
-	}
-	*/
+  @include svg-icon-fill();
 }
-
-/*
-// neosvědčilo se
-img[src$='.svg'] {
-	min-width: 100%; !* Super handy as SVG <img> won’t fill the width if they’ve just got `max-width: 100%` on them. *!
-}
-*/

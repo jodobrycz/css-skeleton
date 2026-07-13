@@ -8,10 +8,4 @@
 @import "_pages/pages";
 @import "_vendors/vendors";
 @import "_development/development";
-
-/*
-@media print {
-	@import "_base/reset";
-	@import "print";
-}
-*/
+@import "print";

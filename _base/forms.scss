@@ -1,71 +1,63 @@
 :where(input) {
-	&:not([type="submit"], [type="checkbox"], [type="radio"], [type="button"], [type="reset"]) {
-		inline-size: 100%;
-	}
+  &:not([type="submit"], [type="checkbox"], [type="radio"], [type="button"], [type="reset"]) {
+    inline-size: 100%;
+  }
 }
 
 input:where([type="tel"], [type="url"], [type="email"], [type="number"]):not(:placeholder-shown) {
-	direction: ltr;
+  direction: ltr;
 }
 
 :where(input, textarea, button, select) {
-	//appearance: none; /* Remove controls */
-	background-color: transparent;
-	color: currentColor;
-	font: inherit;
-	letter-spacing: inherit;
-	word-spacing: inherit;
+  //appearance: none; /* Remove controls */
+  background-color: transparent;
+  color: currentColor;
+  font: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
 }
 
 :where(input, textarea) {
-	hanging-punctuation: none;
-}
-
-/* Remove focus outlines from Firefox. */
-input:-moz-focusring,
-textarea:-moz-focusring,
-button:-moz-focusring,
-select:-moz-focusring {
-	outline: 0;
+  hanging-punctuation: none;
 }
 
 :where(textarea) {
-	field-sizing: content;
-	form-sizing: auto; /* https://geoffgraham.me/the-csswg-adopted-a-new-css-form-sizing-property/ */
-	inline-size: 100%;
-	min-block-size: 5lh;
-	overflow: auto;
-	resize: vertical;
+  field-sizing: content;
+  form-sizing: auto; /* https://geoffgraham.me/the-csswg-adopted-a-new-css-form-sizing-property/ */
+  inline-size: 100%;
+  min-block-size: 5lh;
+  overflow: auto;
+  resize: vertical;
 }
 
 :where(select) {
-	appearance: none; /* Remove controls */
-	background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYgOUwxMiAxNUwxOCA5IiBzdHJva2U9IiMwMDJDNEMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiAvPgo8L3N2Zz4K);
-	background-position: calc(100% - 1.6rem) 1.2rem;
-	background-repeat: no-repeat;
-	//field-sizing: content;
-	padding-inline-end: 5rem;
+  appearance: none; /* Remove controls */
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYgOUwxMiAxNUwxOCA5IiBzdHJva2U9IiMwMDJDNEMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiAvPgo8L3N2Zz4K);
+  background-position: calc(100% - 1.6rem) 1.2rem;
+  background-repeat: no-repeat;
+  //field-sizing: content;
+  padding-inline-end: 5rem;
 }
 
 :where(button) {
-	//appearance: button; /* Correct the inability to style clickable types in iOS and Safari */
+  //appearance: button; /* Correct the inability to style clickable types in iOS and Safari */
 
-	&:focus {
-		//appearance: button; /* Correct the inability to style clickable types in iOS and Safari. */
-	}
+  &:focus-within {
+    //appearance: button; /* Correct the inability to style clickable types in iOS and Safari. */
+  }
 }
 
 [type=radio],
 [type=checkbox] {
-	appearance: none; /* Remove controls - odstranění pro případ vlastního designu */
+  appearance: none; /* Remove controls - odstranění pro případ vlastního designu */
 }
 
 /* input[type="number"] */
 ::-webkit-inner-spin-button,
 ::-webkit-outer-spin-button {
-	//appearance: none; /* Remove controls from Safari and Chrome */
-	//height: auto; /* Correct the cursor style of increment and decrement buttons in Chrome */
-	margin-inline-start: 1rem; /* Removes leftover margin */
+  //appearance: none; /* Remove controls from Safari and Chrome */
+  //height: auto; /* Correct the cursor style of increment and decrement buttons in Chrome */
+  margin-inline-start: 1rem; /* Removes leftover margin */
 }
 
 /* input[type="search"] */
@@ -73,14 +65,14 @@ select:-moz-focusring {
 ::-webkit-search-decoration,
 ::-webkit-search-results-button,
 ::-webkit-search-results-decoration {
-	//appearance: none; /* Remove controls from Safari and Chrome */
-	margin: 1rem;
+  //appearance: none; /* Remove controls from Safari and Chrome */
+  margin: 1rem;
 }
 
 /* [type="file"] - design buttonu pro vložení souboru */
 ::file-selector-button {
-	//appearance: button;
-	cursor: pointer;
+  //appearance: button;
+  cursor: pointer;
 }
 
 /* input[type="date"], input[type="datetime-local"], input[type="time"], … */
@@ -95,9 +87,8 @@ select:-moz-focusring {
 }
 
 [disabled] {
-	//cursor: not-allowed; /* Disabled cursor for disabled buttons */
-	opacity: .5;
-	pointer-events: none;
+  opacity: .5;
+  pointer-events: none;
 }
 
 ::placeholder {
@@ -105,26 +96,10 @@ select:-moz-focusring {
 }
 
 fieldset {
-	/*
+  /*
      * Browsers set a default `min-width: min-content;` on fieldsets,
      * unlike e.g. `<div>`s, which have `min-width: 0;` by default.
      * So we reset that to ensure fieldsets behave more like a standard block element.
      */
-	min-inline-size: 0;
-}
-
-
-
-
-
-.control-label {
-	.form-group--recaptcha & {
-		display: none;
-	}
-}
-
-.help-block {
-	&:empty {
-		display: none;
-	}
+  min-inline-size: 0;
 }

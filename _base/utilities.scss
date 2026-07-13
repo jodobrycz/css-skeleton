@@ -1,79 +1,51 @@
-/**
- * Hide content visually while keeping it accessible to assistive technologies
- */
+/* Hide content visually while keeping it accessible to assistive technologies */
 .sr-only,
 .visually-hidden,
 .visually-hidden-focusable:not(:focus):not(:focus-within) {
-	@include visually-hidden();
+  @include visually-hidden();
 }
 
 .relative {
-	position: relative;
+  position: relative;
 }
 
-.left {
-	text-align: start;
+.text-start {
+  text-align: start;
 }
 
-.center {
-	text-align: center;
+.text-center {
+  text-align: center;
 }
 
-.right {
-	text-align: end;
+.text-end {
+  text-align: end;
 }
 
 .nowrap {
-	white-space: nowrap;
+  white-space: nowrap;
 }
 
 .overflow-visible {
-	overflow: visible;
-}
-
-
-.break {
-	display: block;
-}
-
-.display-block {
-	display: block;
+  overflow: visible;
 }
 
 .inline {
-	display: inline;
+  display: inline;
 }
 
 .print {
-	display: none;
+  display: none;
 }
 
 .hide,
 .hidden {
-	display: none;
+  display: none;
 }
-
-:where([hidden]:not([hidden="until-found"])) {
-	display: none;
-}
-
-
-/**
- * Always hide an element with the `hidden` HTML attribute (from PureCSS).
- * Needed for proper display in IE 10-.
- */
-/*
-[hidden] {
-	display: none !important;
-}
-*/
 
 :focus:not(:focus-visible) {
-	outline: none;
+  outline: none;
 }
 
-/*
 .number {
-	font-variant-numeric: tabular-nums;
+  font-variant-numeric: tabular-nums;
 }
-*/

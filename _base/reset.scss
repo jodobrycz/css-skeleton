@@ -21,22 +21,17 @@
     margin-block-start: 0;
   }
 
-  //&:not(.wysiwyg-content):not(.modal):not(.tabs) {
-    > *:last-child {
-      //&:not(.h1):not(.landmark--aside) {
-        margin-block-end: 0;
-      //}
-    }
-  //}
+  > *:last-child {
+    margin-block-end: 0;
+  }
 }
 
 html {
-  //cursor: default; /* Use the default cursor in all browsers (opinionated). */
   block-size: 100%;
   font-size: 62.5%; /* This will set all REM to 10 px */
   hanging-punctuation: first allow-end last;
-  overflow-y: scroll; /* Display vertical scrollbar at all times to prevent a jumpy page. */
   overflow-wrap: break-word;
+  overflow-y: scroll; /* Display vertical scrollbar at all times to prevent a jumpy page. */
   scrollbar-gutter: stable; /* we can have the UA always show the Scrollbar Gutter, even if the box is not overflowing and no scrollbar is shown. This way we have a visually stable layout: when the box starts to overflow the scrollbar will be rendered but no layout shift will happen as space for it was already reserved. */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Change the default tap highlight to be completely transparent in iOS. */
 
@@ -65,8 +60,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-block-size: 100vb; /*  Ensure the body element's `min-height` is at least the viewport height. */
-  //min-block-size: 100dvb;  /*  Ensure the body element's `min-height` is at least the viewport height. */
+  min-block-size: 100dvb; /*  Ensure the body element's `min-height` is at least the viewport height. */
   overflow-x: clip;
   position: relative;
 
@@ -74,18 +68,9 @@ body {
   -webkit-text-size-adjust: none; /* Prevent adjustments of font size after orientation changes in iOS. */
           text-size-adjust: none  ; /* Prevent adjustments of font size after orientation changes */
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  -webkit-font-kerning: normal;
+   -webkit-font-smoothing: antialiased;
           font-kerning: normal;
   text-rendering: geometricPrecision;
-  //text-rendering: optimizeLegibility;
-}
-
-/* Avoid Chrome to see Safari hack */
-@supports (-webkit-touch-callout: none) {
-  body {
-    block-size: -webkit-fill-available;
-  }
 }
 
 :where(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
@@ -134,7 +119,6 @@ hr {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     background-attachment: initial !important;
-    //scroll-behavior: auto !important;
     transition-delay: 0s !important;
     transition-duration: .01s !important;
   }

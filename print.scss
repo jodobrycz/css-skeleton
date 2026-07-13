@@ -1,129 +1,113 @@
-/*
-	https://www.vzhurudolu.cz/prirucka/css-tisk-knih
-	https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/
-	https://www.interval.cz/clanky/css2-pravidlo-stranky/
- */
-
-@import "_abstracts/abstracts";
-//@import "_base/reset";
-
-$color-black: #000;
-$color-white: #fff;
-
 // Print styles adapted from HTML5 Boilerplate: https://github.com/h5bp/html5-boilerplate
 @media print {
-	* {
-		-webkit-print-color-adjust: exact;
-		print-color-adjust: exact;
-	}
+  * {
+    -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+  }
 
-	/** Setting margins */
-	@page {
-		margin: 20mm;
-	}
+  /** Setting margins */
+  @page {
+    margin: 20mm;
+  }
 
-	/** Blanket Styles */
-	*,
-	*:before,
-	*:after {
-		background: transparent !important;
-		color: $color-black !important; /* Black prints faster */
-		-webkit-box-shadow: none !important;
-		        box-shadow: none !important;
-		text-shadow: none !important;
-	}
-
-
-	/** Print Friendly Links */
-	a,
-	a:visited {
-		&:not(.btn) {
-			text-decoration: underline;
-		}
-	}
-
-	a[href]:after {
-		content: " (" attr(href) ")";
-	}
-
-	//TODO: změnit doménu
-	a[href^="/"]:after {
-		content: " (https://www.fg.cz" attr(href) ") ";
-	}
-
-	abbr[title]:after {
-		content: " (" attr(title) ")";
-	}
-
-	//Don't show links that are fragment identifiers, or use the `javascript:` pseudo protocol
-	a[href^="#"]:after,
-	a[href^="javascript:"]:after {
-		content: "";
-	}
-
-	pre {
-		white-space: pre-wrap !important;
-	}
-
-	pre,
-	blockquote {
-		page-break-inside: avoid;
-	}
+  /** Blanket Styles */
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: $color-black !important; /* Black prints faster */
+    text-shadow: none !important;
+  }
 
 
-	/** Printing Tables */
-	thead {
-		display: table-header-group;
-	}
+  /** Print Friendly Links */
+  a,
+  a:visited {
+    &:not(.btn) {
+      text-decoration: underline;
+    }
+  }
 
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
 
-	/** Optimizing Page Breaks */
-	a,
-	tr,
-	img,
-	table,
-	figure {
-		break-inside: avoid;
-	}
+  a[href^="/"]:after {
+    content: " (https://domena.cz" attr(href) ") ";
+  }
 
-	h1, h2, h3, h4, h5, h6,
-	p, li, blockquote {
-		orphans: 3;
-		widows: 3;
-	}
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
 
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		break-after: avoid;
-		break-inside: avoid;
-	}
+  //Don't show links that are fragment identifiers, or use the `javascript:` pseudo protocol
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
 
-	video,
-	audio,
-	object,
-	embed {
-		display: none;
-	}
+  pre {
+    white-space: pre-wrap !important;
+  }
 
-	.print,
-	.visible-print {
-		display: block !important;
-	}
+  pre,
+  blockquote {
+    page-break-inside: avoid;
+  }
 
-	.noprint,
-	.hidden-print {
-		display: none !important;
-	}
+  /** Printing Tables */
+  thead {
+    display: table-header-group;
+  }
 
-	img {
-		max-width: 100% !important;
-	}
+  /** Optimizing Page Breaks */
+  a,
+  tr,
+  img,
+  table,
+  figure {
+    break-inside: avoid;
+  }
 
-	.container {
-		padding: 0;
-		width: 100%;
-	}
+  h1, h2, h3, h4, h5, h6,
+  p, li, blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid;
+    break-inside: avoid;
+  }
+
+  video,
+  audio,
+  object,
+  embed {
+    display: none;
+  }
+
+  .print,
+  .visible-print {
+    display: block !important;
+  }
+
+  .noprint,
+  .hidden-print {
+    display: none !important;
+  }
+
+  img {
+    max-inline-size: 100% !important;
+  }
+
+  .container {
+    inline-size: 100%;
+    padding: 0;
+  }
 }

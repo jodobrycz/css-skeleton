@@ -1,50 +1,49 @@
 :where(ul, ol) {
-	//list-style-type: none;
-	list-style-type: "";
+  list-style-type: "";
 }
 
 :where(li) {
-	position: relative;
+  position: relative;
 }
 
 :where(.wysiwyg-content) {
-	ul,
-	ol {
-		ul,
-		ol {
-			margin-block: 1rem;
-			margin-inline: 0 1rem;
-		}
-	}
+  ul,
+  ol {
+    ul,
+    ol {
+      margin-block: 1rem;
+      margin-inline: 0 1rem;
+    }
+  }
 
-	li {
-		padding-inline-start: 1rem;
-		text-wrap: pretty;
+  li {
+    padding-inline-start: 1rem;
+    text-wrap: pretty;
 
-		&::marker {
-			font-weight: 700;
-		}
+    &::marker {
+      font-weight: 700;
+    }
 
-		&:not(:last-of-type) {
+    &:not(:last-of-type) {
 
-		}
-	}
+    }
+  }
 
-	ul {
-		li {
-			&::marker {
-				content: "—";
-			}
-		}
-	}
+  ul {
+    li {
+      &::marker {
+        content: "—";
+      }
+    }
+  }
 
-	ol {
-		counter-reset: my-list-counter;
+  ol {
+    counter-reset: my-list-counter;
 
-		> li {
-			&::marker {
-				content: counter(list-item) ".";
-			}
-		}
-	}
+    > li {
+      &::marker {
+        content: counter(list-item) ".";
+      }
+    }
+  }
 }

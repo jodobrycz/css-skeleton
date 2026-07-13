@@ -1,24 +1,24 @@
 .btn {
-	display: inline-flex;
-	text-decoration: none;
-	transition: all $animation-speed ease-in-out;
+  display: inline-flex;
+  text-decoration: none;
+  transition: all $animation-speed ease-in-out;
 
-	@include hover() {
+  &:hover {
 
-	}
+  }
 
-	@include focus() {
+  &:focus-within {
 
-	}
+  }
 
-	&:not(:last-child) {
+  &:not(:last-child) {
 
-	}
+  }
 }
 
 .buttons {
-	align-items: center;
-	display: flex;
-	flex-wrap: wrap;
-	max-width: none;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: none;
 }

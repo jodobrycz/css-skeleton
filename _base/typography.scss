@@ -1,39 +1,21 @@
-/*
-h2 + * {
-	margin-block-start: 0.5rem;
-}
-p + * {
-	margin-block-start: 1.5rem;
-}
-*/
-
 :where(h1, .h1, h2, .h2, h3, .h3, h4, .h4) {
-	color: $text-color;
-	display: block;
-	font-variant-numeric: lining-nums;
-	font-weight: 700;
-	text-wrap: balance;
+  color: $text-color;
+  display: block;
+  font-variant-numeric: lining-nums;
+  font-weight: 700;
+  text-wrap: balance;
 }
 
 h1, .h1 {
 
-	+ h2, + .h2 {
-
-	}
 }
 
 h2, .h2 {
 
-	+ h3, + .h3 {
-
-	}
 }
 
 h3, .h3 {
 
-	+ h4, + .h4 {
-
-	}
 }
 
 h4, .h4 {
@@ -41,8 +23,8 @@ h4, .h4 {
 }
 
 p {
-	font-variant-numeric: proportional-nums;
-	text-wrap: pretty;
+  font-variant-numeric: proportional-nums;
+  text-wrap: pretty;
 }
 
 .perex {
@@ -52,83 +34,113 @@ p {
 b,
 strong,
 .strong {
-	font-weight: 700; /* Add the correct font weight in Chrome, Edge, and Safari. */
+  font-weight: 700; /* Add the correct font weight in Chrome, Edge, and Safari. */
 }
 
 /* Baseline for default links */
 a {
-	background-color: transparent; /* Remove the gray background on active links in IE 10. */
-	color: $link-color;
-	text-decoration: underline;
-	text-underline-offset: .2rem;
-	transition: all $animation-speed ease-in-out;
+  background-color: transparent; /* Remove the gray background on active links in IE 10. */
+  color: $link-color;
+  text-decoration: underline;
+  text-underline-offset: .2rem;
+  transition: all $animation-speed ease-in-out;
 
-	&:visited {
+  &:visited {
 
-	}
+  }
 
-	@include focus() {
+  &:focus-within {
+    &:hover {
 
-		@include hover() {
+    }
+  }
 
-		}
-	}
+  &:hover {
+    text-decoration: none;
+  }
 
-	@include hover() {
-		text-decoration: none;
-	}
+  &:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
 
-	&:not([class]) {
-		text-decoration-skip-ink: auto;
-	}
+  // odkaz na externí web
+  //&[href^="http"]:not(.btn, :has(svg)):not([href^="https://domena.cz"], [href^="http://localhost"]) {
+  &[href^='http'] {
+    display: inline-table;
+    padding-inline-end: calc(1.25em);
+    position: relative;
 
-	// odkaz na externí web
-	//&[href^="http"]:not(.btn, :has(svg)):not([href^="https://domena.cz"], [href^="http://localhost"]) {
-	&[href^='http'] {
-		display: inline-table;
-		padding-inline-end: calc(1.25em);
-		position: relative;
+    &:after {
+      aspect-ratio: 1;
+      background-color: currentColor;
+      block-size: 1em;
+      content: '';
+      display: inline-block;
+      inline-size: auto;
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewbox='0 0 16 16' width='16' height='16'%3E%3Cpath d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5'/%3E%3Cpath d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z'/%3E%3C/svg%3E");
+      mask-size: cover;
+      position: absolute;
+      transform: translate(.25em, .3em);
+    }
+  }
 
-		&:after {
-			aspect-ratio: 1;
-			background-color: currentColor;
-			block-size: 1em;
-			content: '';
-			display: inline-block;
-			inline-size: auto;
-			mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewbox='0 0 16 16' width='16' height='16'%3E%3Cpath d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5'/%3E%3Cpath d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z'/%3E%3C/svg%3E");
-			mask-size: cover;
-			position: absolute;
-			transform: translate(.25em, .3em);
-		}
-	}
+  [href*="//"] {
+    &:not([href*="yourwebsite.com"]) {
 
-	[href*="//"] {
-		&:not([href*="yourwebsite.com"]) {
-
-		}
-	}
+    }
+  }
 }
 
 .address {
-	font-style: normal;
+  font-style: normal;
 }
 
-/*
 ::selection {
-	background-color: #b3d4fc; !* Restore the coloring undone by defining the text shadow all browsers (opinionated). *!
-	color: #000; !* Restore the coloring undone by defining the text shadow all browsers (opinionated). *!
-	text-shadow: none;
+  background-color: #b3d4fc; /* Restore the coloring undone by defining the text shadow all browsers (opinionated). */
+  color: #000; /* Restore the coloring undone by defining the text shadow all browsers (opinionated). */
+  text-shadow: none;
 }
-*/
 
-/*
 ::target-text {
-	background-color: #b3d4fc; !* Restore the coloring undone by defining the text shadow all browsers (opinionated). *!
-	color: #000; !* Restore the coloring undone by defining the text shadow all browsers (opinionated). *!
-	text-shadow: none;
+  background-color: #b3d4fc; /* Restore the coloring undone by defining the text shadow all browsers (opinionated). */
+  color: #000; /* Restore the coloring undone by defining the text shadow all browsers (opinionated). */
+  text-shadow: none;
 }
-*/
+
+blockquote {
+  &:before {
+    content: open-quote;
+  }
+
+  &:after {
+    content: close-quote;
+  }
+}
+
+small {
+  font-size: percentage(5 / 6); /* Add the correct font size in all browsers. */
+}
+
+kbd {
+
+}
+
+mark {
+
+}
+
+del {
+  text-decoration: line-through;
+}
+
+ins {
+
+}
+
+s {
+
+}
+
 
 
 /*
@@ -147,77 +159,4 @@ sub {
 
 sup {
   inset-block-start: -.75em;
-}
-
-/*
-@supports (font-variant-position: super) {
-  sup {
-    font-size: 1em;
-    font-variant-position: super;
-    //line-height: inherit;
-    vertical-align: baseline;
-  }
-}
-
-@supports (font-variant-position: sub) {
-  sub {
-    font-size: 1em;
-    font-variant-position: sub;
-    //line-height: inherit;
-    vertical-align: baseline;
-  }
-}
-*/
-
-
-/*
-@supports (font-feature-settings: "sups") {
-  sup {
-    font-feature-settings: "sups";
-    font-size: 1em;
-    vertical-align: baseline;
-  }
-}
-
-@supports (font-feature-settings: "subs") {
-  sub {
-    font-feature-settings: "subs";
-    font-size: 1em;
-    vertical-align: baseline;
-  }
-}
-*/
-
-blockquote {
-	&:before {
-		content: open-quote;
-	}
-
-	&:after {
-		content: close-quote;
-	}
-}
-
-small {
-	font-size: percentage(5 / 6); /* Add the correct font size in all browsers. */
-}
-
-kbd {
-
-}
-
-mark {
-
-}
-
-del {
-	text-decoration: line-through;
-}
-
-ins {
-
-}
-
-s {
-
 }

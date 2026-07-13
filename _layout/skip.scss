@@ -13,20 +13,23 @@
 
 .skip__link {
   @include transition(transform);
-  inset-block-start: 0;
-  inset-inline: 0;
-  position: fixed;
-  text-align: center;
-  text-decoration: none;
-  transform: translate(0, -100%);
-  z-index: #{map-get($zindex, skip)};
 
-  &:focus {
-    outline: 0;
-    transform: translate(0, 0);
+  & {
+    inset-block-start: 0;
+    inset-inline: 0;
+    position: fixed;
+    text-align: center;
+    text-decoration: none;
+    transform: translate(0, -100%);
+    z-index: #{map-get($zindex, skip)};
 
-    &:hover {
-      text-decoration: underline;
+    &:focus-within {
+      outline: 0;
+      transform: translate(0, 0);
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

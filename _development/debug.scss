@@ -32,15 +32,15 @@ $debug-outline-color-warning: yellow;
  */
 
 img {
-	outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
+  outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
 }
 
 img[alt] {
-	outline: none !important;
+  outline: none !important;
 }
 
 img[alt=""] {
-	outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
 }
 
 /**
@@ -50,7 +50,7 @@ img[alt=""] {
 a[href=""],
 a[href="#"],
 a[href*="javascript"] {
-	outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
 }
 
 /**
@@ -58,7 +58,7 @@ a[href*="javascript"] {
  */
 
 a[target] {
-	outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
 }
 
 
@@ -68,9 +68,9 @@ a[target] {
 
 ul,
 ol {
-	> *:not(li) {
-		outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
-	}
+  > *:not(li) {
+    outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
+  }
 }
 
 /**
@@ -78,11 +78,11 @@ ol {
  */
 
 th {
-	outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
 }
 
 th[scope] {
-	outline: none !important;
+  outline: none !important;
 }
 
 
@@ -91,7 +91,7 @@ th[scope] {
  */
 
 table > tr {
-	outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
 }
 
 
@@ -100,7 +100,7 @@ table > tr {
  */
 
 tbody + tfoot {
-	outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
 }
 
 
@@ -109,11 +109,11 @@ tbody + tfoot {
  */
 
 form {
-	outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
+  outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
 }
 
 form[action] {
-	outline: none !important;
+  outline: none !important;
 }
 
 
@@ -125,23 +125,23 @@ form[action] {
 
 textarea,
 input {
-	outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
+  outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
 }
 
 input[type] {
-	outline: none !important;
+  outline: none !important;
 }
 
 textarea[rows][cols] {
-	outline: none !important;
+  outline: none !important;
 }
 
 input[type=submit] {
-	outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
+  outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
 }
 
 input[type=submit][value] {
-	outline: none !important;
+  outline: none !important;
 }
 
 
@@ -150,5 +150,5 @@ input[type=submit][value] {
  */
 
 [style] {
-	outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
 }
