@@ -46,7 +46,8 @@ body {
   //@include horizontal-grid(.4rem);
 
   &:before {
-    @include make-container-max-widths();
+    // TODO: mixin make-container-max-widths() není v projektu definovaný – dočasně zakomentováno, aby SCSS kompilovalo
+    //@include make-container-max-widths();
 
     bottom: 0;
     left: 50%;
