@@ -4,7 +4,27 @@ body {
   line-height: 1.8;
 }
 
+blockquote,
 details,
 figure {
   margin-block-end: 1.5lh;
+}
+
+blockquote {
+  padding-inline-start: 5.6rem;
+
+  &:before,
+  &:after {
+    display: block;
+    font-size: 2em;
+    font-weight: 700;
+    margin-inline-start: -5.6rem;
+    text-box: trim-both cap alphabetic;
+  }
+
+  footer {
+    &:before {
+      content: "— ";
+    }
+  }
 }
