@@ -5,13 +5,6 @@
 :where(img) {
   /* Only render when in viewport */
   //content-visibility: auto;
-  image-rendering: -webkit-optimize-contrast; /* Fixing blurry images */
-
-  /*
-  .wysiwyg-content & {
-    @include responsive-image();
-  }
-  */
 
   a & {
     .wysiwyg-content & {
