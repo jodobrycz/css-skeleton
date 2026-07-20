@@ -31,12 +31,12 @@ input:where([type="tel"], [type="url"], [type="email"], [type="number"]):not(:pl
 }
 
 :where(select) {
-  appearance: none; /* Remove controls */
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYgOUwxMiAxNUwxOCA5IiBzdHJva2U9IiMwMDJDNEMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiAvPgo8L3N2Zz4K);
-  background-position: calc(100% - 1.6rem) 1.2rem;
-  background-repeat: no-repeat;
+  //appearance: none; /* Remove controls */
+  //background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYgOUwxMiAxNUwxOCA5IiBzdHJva2U9IiMwMDJDNEMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiAvPgo8L3N2Zz4K);
+  //background-position: calc(100% - 1.6rem) 1.2rem;
+  //background-repeat: no-repeat;
   //field-sizing: content;
-  padding-inline-end: 5rem;
+  //padding-inline-end: 5rem;
 }
 
 :where(button) {
@@ -49,7 +49,7 @@ input:where([type="tel"], [type="url"], [type="email"], [type="number"]):not(:pl
 
 [type=radio],
 [type=checkbox] {
-  appearance: none; /* Remove controls - odstranění pro případ vlastního designu */
+  //appearance: none; /* Remove controls - odstranění pro případ vlastního designu */
 }
 
 /* input[type="number"] */
