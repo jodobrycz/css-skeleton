@@ -48,7 +48,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-block-size: 100dvb; /*  Ensure the body element's `min-height` is at least the viewport height. */
+  min-block-size: 100dvb; /* Ensure the body element's `min-height` is at least the viewport height. */
   overflow-x: clip;
   position: relative;
 
