@@ -1,11 +1,11 @@
+@use "sass:meta";
 @charset "utf-8";
 @layer base, layout, components, pages, vendors, development;
 
-@import "_abstracts/abstracts";
-@import "_base/base";
-@import "_layout/layout";
-@import "_components/components";
-@import "_pages/pages";
-@import "_vendors/vendors";
-@import "_development/development";
-@import "print";
+@include meta.load-css("_base/base");
+@include meta.load-css("_layout/layout");
+@include meta.load-css("_components/components");
+@include meta.load-css("_pages/pages");
+@include meta.load-css("_vendors/vendors");
+@include meta.load-css("_development/development");
+@include meta.load-css("print");

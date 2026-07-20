@@ -1,10 +1,12 @@
+@use "sass:meta";
+
 @layer development {
   .env-development {
-    @import "rwd-identifier";
-    //@import "rwd-viewport-half";
-    //@import "debug";
-    @import "debug-grid";
-    @import "accessibility";
+    @include meta.load-css("rwd-identifier");
+    //@include meta.load-css("rwd-viewport-half");
+    //@include meta.load-css("debug");
+    @include meta.load-css("debug-grid");
+    @include meta.load-css("accessibility");
   }
 }
 

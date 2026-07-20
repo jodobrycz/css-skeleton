@@ -1,4 +1,7 @@
-/* http://stripesgenerator.com */
+@use "sass:math";
+@use "../_abstracts/abstracts" as *;
+
+// http://stripesgenerator.com
 $grid-background: rgba(#f00, .15);
 
 @mixin grid-8px($dark: #e2e2e2, $light: #f2f2f2) {
@@ -14,8 +17,8 @@ $grid-background: rgba(#f00, .15);
 }
 
 @mixin grid-before() {
-  background-image: linear-gradient(to right, transparent $grid-gutter-width, $grid-background $grid-gutter-width / 2, $grid-background calc(100% - #{$grid-gutter-width} / 2), transparent calc(100% - #{$grid-gutter-width} / 2), transparent 100%);
-  background-size: percentage(1 / 12) percentage(1 / 12);
+  background-image: linear-gradient(to right, transparent $grid-gutter-width, $grid-background math.div($grid-gutter-width, 2), $grid-background calc(100% - #{$grid-gutter-width} / 2), transparent calc(100% - #{$grid-gutter-width} / 2), transparent 100%);
+  background-size: math.percentage(math.div(1, 12)) math.percentage(math.div(1, 12));
   content: "";
   height: 100%;
   left: 0;

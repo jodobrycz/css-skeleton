@@ -1,4 +1,6 @@
 // Print styles adapted from HTML5 Boilerplate: https://github.com/h5bp/html5-boilerplate
+@use "_abstracts/abstracts" as *;
+
 @media print {
   * {
     -webkit-print-color-adjust: exact;

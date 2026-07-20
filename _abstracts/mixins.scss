@@ -1,4 +1,7 @@
-/* responsive image */
+@use "sass:map";
+@use "variables" as *;
+
+// responsive image
 @mixin responsive-image() {
   block-size: auto;
   display: block;
@@ -7,7 +10,7 @@
   vertical-align: middle; /* Remove the gap between <img> elements and the bottom of their */
 }
 
-/* svg */
+// svg
 @mixin svg-icon-fill($fill: currentColor, $width: 5rem, $height: 5rem) {
   @include transition(fill);
   block-size: $height;
@@ -49,7 +52,7 @@
   transition: $property $animation-speed ease-in-out;
 }
 
-/* scrollbar */
+// scrollbar
 @mixin scrollbar($scrollbar-dimension: $scrollbar-dimension, $scrollbar-radius: $scrollbar-radius) {
   @supports (scrollbar-width: auto) {
     scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color; /* thumb and track color */
@@ -78,33 +81,33 @@
 // --------------------------------------------------
 // @include screen(md) {} — od dané hranice nahoru
 @mixin screen($name) {
-  @if not map-has-key($grid-breakpoints, $name) {
+  @if not map.has-key($grid-breakpoints, $name) {
     @warn 'Invalid breakpoint: #{$name}.';
   }
-  @media (width >= #{map-get($grid-breakpoints, $name)}) {
+  @media (width >= #{map.get($grid-breakpoints, $name)}) {
     @content;
   }
 }
 
 // @include screen-max(md) {} — pod danou hranici
 @mixin screen-max($name) {
-  @if not map-has-key($grid-breakpoints, $name) {
+  @if not map.has-key($grid-breakpoints, $name) {
     @warn 'Invalid breakpoint: #{$name}.';
   }
-  @media (width < #{map-get($grid-breakpoints, $name)}) {
+  @media (width < #{map.get($grid-breakpoints, $name)}) {
     @content;
   }
 }
 
 // @include screen-between(sm, md) {} — od dolní hranice (včetně) pod horní hranici
 @mixin screen-between($lower, $upper) {
-  @if not map-has-key($grid-breakpoints, $lower) {
+  @if not map.has-key($grid-breakpoints, $lower) {
     @warn 'Invalid breakpoint: #{$lower}.';
   }
-  @if not map-has-key($grid-breakpoints, $upper) {
+  @if not map.has-key($grid-breakpoints, $upper) {
     @warn 'Invalid breakpoint: #{$upper}.';
   }
-  @media (width >= #{map-get($grid-breakpoints, $lower)}) and (width < #{map-get($grid-breakpoints, $upper)}) {
+  @media (width >= #{map.get($grid-breakpoints, $lower)}) and (width < #{map.get($grid-breakpoints, $upper)}) {
     @content;
   }
 }
