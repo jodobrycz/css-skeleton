@@ -1,5 +1,10 @@
 /data
+/dist
+/node_modules
+
 .idea
+.vite
+
 *.bak
 /node_modules
 /dist
