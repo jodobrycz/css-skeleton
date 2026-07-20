@@ -1,14 +1,16 @@
+@use "sass:meta";
+
 @layer base {
-  @import "reset";
-  //@import "fonts";
-  @import "general";
-  @import "utilities";
-  @import "grid";
-  @import "typography";
-  @import "lists";
-  @import "images";
-  @import "tables";
-  @import "buttons";
-  //@import "forms";
+  @include meta.load-css("reset");
+  //@include meta.load-css("fonts");
+  @include meta.load-css("general");
+  @include meta.load-css("utilities");
+  @include meta.load-css("grid");
+  @include meta.load-css("typography");
+  @include meta.load-css("lists");
+  @include meta.load-css("images");
+  @include meta.load-css("tables");
+  @include meta.load-css("buttons");
+  //@include meta.load-css("forms");
 }
 

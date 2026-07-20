@@ -1,6 +1,8 @@
+@use "sass:meta";
+
 @layer components {
-  @import "noscript-warning";
-  @import "wysiwyg";
-  @import "scroll-container";
-  //@import "tinymce";
+  @include meta.load-css("noscript-warning");
+  @include meta.load-css("wysiwyg");
+  @include meta.load-css("scroll-container");
+  //@include meta.load-css("tinymce");
 }

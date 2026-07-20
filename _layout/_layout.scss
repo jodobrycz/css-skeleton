@@ -1,4 +1,5 @@
-//@import "grid";
+@use "sass:meta";
+
 @layer layout {
-  @import "skip";
+  @include meta.load-css("skip");
 }

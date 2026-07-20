@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "../_abstracts/abstracts" as *;
+
 .skip {
   inline-size: 100%;
   position: absolute;
@@ -21,7 +24,7 @@
     text-align: center;
     text-decoration: none;
     transform: translate(0, -100%);
-    z-index: #{map-get($zindex, skip)};
+    z-index: #{map.get($zindex, skip)};
 
     &:focus-within {
       outline: 0;

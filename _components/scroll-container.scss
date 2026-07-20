@@ -1,3 +1,5 @@
+@use "../_abstracts/abstracts" as *;
+
 .horizontal-scroll-container {
   @include scrollbar();
 
