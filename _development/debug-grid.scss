@@ -37,7 +37,7 @@ $grid-background: rgba(#f00, .15);
 @mixin grid() {
   position: relative;
 
-  &:before {
+  &::before {
     @include grid-before();
   }
 }
@@ -48,7 +48,7 @@ body {
   //@include grid-10px();
   //@include horizontal-grid(.4rem);
 
-  &:before {
+  &::before {
     @include make-container-max-widths();
 
     bottom: 0;

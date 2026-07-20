@@ -1,5 +1,5 @@
 body {
-  &:before {
+  &::before {
     background: #000;
     content: "";
     display: block;

@@ -73,7 +73,7 @@ a {
     padding-inline-end: calc(1.25em);
     position: relative;
 
-    &:after {
+    &::after {
       aspect-ratio: 1;
       background-color: currentColor;
       block-size: 1em;
@@ -111,11 +111,11 @@ a {
 }
 
 blockquote {
-  &:before {
+  &::before {
     content: open-quote;
   }
 
-  &:after {
+  &::after {
     content: close-quote;
   }
 }
