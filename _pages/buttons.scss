@@ -1,3 +1,11 @@
+@use "../_abstracts/abstracts" as *;
+
+.btn {
+  border: .2rem solid $text-color;
+  padding-block: 1.2rem;
+  padding-inline: 24px;
+}
+
 .buttons {
   gap: 2.4rem 12px;
 }

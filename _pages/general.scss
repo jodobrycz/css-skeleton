@@ -1,3 +1,5 @@
+@use "../_abstracts/abstracts" as *;
+
 body {
   font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
   font-size: 2rem;
@@ -6,7 +8,8 @@ body {
 
 blockquote,
 details,
-figure {
+figure,
+.block {
   margin-block-end: 1.5lh;
 }
 
@@ -26,5 +29,15 @@ blockquote {
     &:before {
       content: "— ";
     }
+  }
+}
+
+[popover] {
+  background-color: $color-white;
+  max-inline-size: 50rem;
+  padding: 20px;
+
+  &::backdrop {
+    background: rgba($color-black, .5);
   }
 }
