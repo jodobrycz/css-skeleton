@@ -29,6 +29,26 @@ body {
   margin-block-end: 1.5lh;
 }
 
+details {
+  &[open] {
+
+  }
+}
+
+summary {
+
+}
+
+[popover] {
+  @supports(position-area: block-end span-inline-end) {
+    position-area: block-end span-inline-end;
+  }
+
+  &::backdrop {
+
+  }
+}
+
 pre,
 code,
 kbd,
