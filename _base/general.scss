@@ -73,7 +73,7 @@ abbr[title] {
 
   &:hover,
   &:focus-within {
-    &:after {
+    &::after {
       background-color: $color-white;
       block-size: auto;
       border: .1rem solid #767676;

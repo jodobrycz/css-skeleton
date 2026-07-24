@@ -6,8 +6,8 @@
   padding: 0;
   vertical-align: baseline;
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     box-sizing: inherit;
     text-decoration: inherit; /* Add text decoration inheritance in all browsers (opinionated). */
     vertical-align: inherit; /* Add vertical alignment inheritance in all browsers (opinionated). */
@@ -33,15 +33,8 @@ html {
   /* Smooth scrolling for users that don't prefer reduced motion */
   @media (prefers-reduced-motion: no-preference) {
     interpolate-size: allow-keywords;
-  }
 
-  &:focus-within {
-    @media (prefers-reduced-motion: no-preference) {
-      scroll-behavior: smooth;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
+    &:focus-within,
     :has(:target) {
       scroll-behavior: smooth;
     }
@@ -55,17 +48,17 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-block-size: 100dvb; /*  Ensure the body element's `min-height` is at least the viewport height. */
+  min-block-size: 100dvb; /* Ensure the body element's `min-height` is at least the viewport height. */
   overflow-x: clip;
   position: relative;
 
   /* Better font rendering. */
   -webkit-text-size-adjust: none; /* Prevent adjustments of font size after orientation changes in iOS. */
-          text-size-adjust: none  ; /* Prevent adjustments of font size after orientation changes */
+          text-size-adjust: none; /* Prevent adjustments of font size after orientation changes */
   -moz-osx-font-smoothing: grayscale;
    -webkit-font-smoothing: antialiased;
-          font-kerning: normal;
-  text-rendering: geometricPrecision;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
 }
 
 :where(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
@@ -91,10 +84,6 @@ body {
 :where(a[href], area, button, input, label[for], select, summary, textarea, [tabindex]:not([tabindex*="-"])) {
   cursor: pointer;
   touch-action: manipulation;
-}
-
-hr {
-  block-size: 0;
 }
 
 /**

@@ -1,7 +1,7 @@
 @use "../_abstracts/abstracts" as *;
 
 body {
-  &:after {
+  &::after {
     color: #fff;
     left: 0;
     padding: .5rem 1rem;
