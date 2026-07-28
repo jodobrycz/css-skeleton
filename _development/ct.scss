@@ -1,14 +1,13 @@
 /*!==========================================================================
    #CT.CSS
-   ========================================================================== */
+   ==========================================================================
+ */
 
 /*!
  * ct.css – Let’s take a look inside your <head>…
  *
  * © Harry Roberts 2021 – twitter.com/csswizardry
  */
-
-
 
 
 
@@ -24,8 +23,6 @@ head {
   --ct-warn: #ffa400;
   --ct-error: #ff4e42;
 }
-
-
 
 
 
@@ -49,24 +46,22 @@ head style, head [rel="stylesheet"],
 head title,
 head script ~ meta[http-equiv="content-security-policy"],
 head > meta[charset]:not(:nth-child(-n+5)) {
+  background-color: white;
+  border-width: 5px;
+  color: #333;
   margin: 5px;
   padding: 5px;
-  border-width: 5px;
-  background-color: white;
-  color: #333;
 }
 
 head ::before,
 head script, head style {
-  font: 16px/1.5 monospace, monospace;
   display: block;
+  font: 16px/1.5 monospace, monospace;
 }
 
 head ::before {
   font-weight: bold;
 }
-
-
 
 
 
@@ -76,8 +71,8 @@ head ::before {
 
 head script[src],
 head link[rel="stylesheet"] {
-  border-style: var(--ct-is-problematic);
   border-color: var(--ct-warn);
+  border-style: var(--ct-is-problematic);
 }
 
 head script[src]::before {
@@ -90,20 +85,18 @@ head link[rel="stylesheet"]::before {
 
 
 
-
-
 /**
  * Inline Script and Style.
  */
 
 head style:not(:empty),
 head script:not(:empty) {
-  max-height: 5em;
-  overflow: auto;
   background-color: #ffd;
-  white-space: pre;
   border-color: var(--ct-notify);
   border-style: var(--ct-is-problematic);
+  max-height: 5em;
+  overflow: auto;
+  white-space: pre;
 }
 
 head script:not(:empty)::before {
@@ -113,8 +106,6 @@ head script:not(:empty)::before {
 head style:not(:empty)::before {
   content: "[Inline Style] ";
 }
-
-
 
 
 
@@ -129,17 +120,15 @@ head style:not(:empty)::before {
 head script[src]:not([async]):not([defer]):not([type=module]) ~ title,
 head script[type]:not([type="text/javascript"]) ~ title,
 head script:not(:empty) ~ title {
-  display: block;
-  border-style: var(--ct-is-affected);
   border-color: var(--ct-error);
+  border-style: var(--ct-is-affected);
+  display: block;
 }
 
 head script[src]:not([async]):not([defer]):not([type=module]) ~ title::before,
 head script:not(:empty) ~ title::before {
   content: "[<title> blocked by JS] ";
 }
-
-
 
 
 
@@ -154,8 +143,8 @@ head script:not(:empty) ~ title::before {
 
 head [rel="stylesheet"]:not([media="print"]):not(.ct) ~ script,
 head style:not(:empty) ~ script {
-  border-style: var(--ct-is-affected);
   border-color: var(--ct-warn);
+  border-style: var(--ct-is-affected);
 }
 
 head [rel="stylesheet"]:not([media="print"]):not(.ct) ~ script::before,
@@ -165,24 +154,20 @@ head style:not(:empty) ~ script::before {
 
 
 
-
-
 /**
  * Using both `async` and `defer` is redundant (an anti-pattern, even). Let’s
  * flag that.
  */
 
 head script[src][src][async][defer] {
-  display: block;
-  border-style: var(--ct-is-problematic);
   border-color: var(--ct-warn);
+  border-style: var(--ct-is-problematic);
+  display: block;
 }
 
 head script[src][src][async][defer]::before {
   content: "[async and defer is redundant: prefer defer – " attr(src) "]";
 }
-
-
 
 
 
@@ -192,8 +177,8 @@ head script[src][src][async][defer]::before {
  */
 head script:not([src])[async],
 head script:not([src])[defer] {
-  border-style: var(--ct-is-problematic);
   border-color: var(--ct-warn);
+  border-style: var(--ct-is-problematic);
 }
 
 head script:not([src])[async]::before {
@@ -206,35 +191,27 @@ head script:not([src])[defer]::before {
 
 
 
-
-
 /**
  * Supplying a character encoding for scripts is invalid and may pervert the
  * script from loading.
  */
 head script[type*="charset"] {
-  border-style: var(--ct-is-problematic);
   border-color: var(--ct-warn);
+  border-style: var(--ct-is-problematic);
 }
 
 head script[type*="charset"]::before {
   content: "[charset on scripts may prevent script from loading]"
 }
 
-
-
-
-
 head script[type="text/javascript"] {
-  border-style: var(--ct-is-problematic);
   border-color: var(--ct-warn);
+  border-style: var(--ct-is-problematic);
 }
 
 head script[type="text/javascript"]::before {
   content: "[" attr(type) " is redundant: you might as well delete it]"
 }
-
-
 
 
 
@@ -250,8 +227,8 @@ head script[src][src][src^="//"],
 head script[src][src][src^="http"],
 head [rel="stylesheet"][href^="//"],
 head [rel="stylesheet"][href^="http"] {
-  border-style: var(--ct-is-problematic);
   border-color: var(--ct-error);
+  border-style: var(--ct-is-problematic);
 }
 
 head script[src][src][src^="//"]::before,
@@ -266,15 +243,13 @@ head [rel="stylesheet"][href^="http"]::before {
 
 
 
-
-
 /**
  * Mid-HEAD CSP disables the Preload Scanner
  */
 
 head script ~ meta[http-equiv="content-security-policy"] {
-  border-style: var(--ct-is-problematic);
   border-color: var(--ct-error);
+  border-style: var(--ct-is-problematic);
 }
 
 head script ~ meta[http-equiv="content-security-policy"]::before {
@@ -283,21 +258,17 @@ head script ~ meta[http-equiv="content-security-policy"]::before {
 
 
 
-
-
 /**
  * Charset should appear as early as possible
  */
 head > meta[charset]:not(:nth-child(-n+5)) {
-  border-style: var(--ct-is-problematic);
   border-color: var(--ct-warn);
+  border-style: var(--ct-is-problematic);
 }
 
 head > meta[charset]:not(:nth-child(-n+5))::before {
   content: "[Charset should appear as early as possible]";
 }
-
-
 
 
 

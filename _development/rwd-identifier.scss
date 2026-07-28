@@ -1,49 +1,51 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:list";
+@use "sass:string";
 @use "../_abstracts/abstracts" as *;
+
+// Základ barvy pro RWD identifikátor.
+// L a C se drží konstantní, mění se pouze hue (H) — rovnoměrně rozpočítané
+// po 360° podle počtu položek v $grid-breakpoints.
+$rwd-lightness:   0.45;
+$rwd-chroma:      0.1;
+$rwd-hue-start:   0;
+
+$rwd-breakpoints: map.keys($grid-breakpoints);
+$rwd-count:       list.length($rwd-breakpoints);
+$rwd-hue-step:    math.div(360, $rwd-count);
 
 body {
   &::after {
-    color: #fff;
-    left: 0;
-    padding: .5rem 1rem;
+    color: $color-white;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    padding-block: .5rem;
+    padding-inline: .5rem 1rem;
     position: fixed;
-    top: 0;
     z-index: 9999;
 
-    @include screen-max(xs) {
-      background: #4d4d4d;
-      color: #f00;
-      content: "[ < 320px ]";
-    }
+    @for $i from 1 through $rwd-count {
+      $name: list.nth($rwd-breakpoints, $i);
+      $hue:  $rwd-hue-start + ($rwd-hue-step * ($i - 1));
+      $bg:   oklch($rwd-lightness $rwd-chroma $hue);
 
-    @include screen(xs) {
-      background: #7c378a;
-      content: "[ XS+ ]";
-    }
+      @if $i == 1 {
+        // první breakpoint (xxs) = vše pod druhou hranicí
+        $next: list.nth($rwd-breakpoints, 2);
 
-    @include screen(sm) {
-      background: #3465aa;
-      content: "[ SM+ ]";
-    }
+        @include screen-max($next) {
+          content: "[ < #{map.get($grid-breakpoints, $next)} ]";
+          background-color: $bg;
+        }
+      } @else {
+        $label: string.to-upper-case(#{$name});
 
-    @include screen(md) {
-      background: #09a275;
-      content: "[ MD+ ]";
-    }
-
-    @include screen(lg) {
-      background: #7cb854;
-      content: "[ LG+ ]";
-    }
-
-    @include screen(xl) {
-      background: #f2b701;
-      content: "[ XL+ ]";
+        @include screen($name) {
+          content: "[ #{$label}+ ]";
+          background-color: $bg;
+        }
+      }
     }
   }
 }
-
-//
-// #e57d04
-// #dc0030
-// #b10058
-//
