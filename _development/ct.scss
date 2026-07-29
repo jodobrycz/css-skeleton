@@ -117,16 +117,22 @@ head style:not(:empty)::before {
  * and narrow it down later as we can when targeting elements directly.
  */
 
-head script[src]:not([async]):not([defer]):not([type=module]) ~ title,
-head script[type]:not([type="text/javascript"]) ~ title,
-head script:not(:empty) ~ title {
+$ct-non-blocking-types:
+  "[type=module], [type=importmap], [type=speculationrules], " +
+  "[type='application/ld+json'], [type='application/json'], " +
+  "[type='text/template'], [type='text/x-template']";
+
+head script[src]:not([async]):not([defer]):not(:is(#{$ct-non-blocking-types})) ~ title,
+head script[type]:not([type="text/javascript"]):not(:is(#{$ct-non-blocking-types})) ~ title,
+head script:not(:empty):not(:is(#{$ct-non-blocking-types})) ~ title {
   border-color: var(--ct-error);
   border-style: var(--ct-is-affected);
   display: block;
 }
 
-head script[src]:not([async]):not([defer]):not([type=module]) ~ title::before,
-head script:not(:empty) ~ title::before {
+head script[src]:not([async]):not([defer]):not(:is(#{$ct-non-blocking-types})) ~ title::before,
+head script[type]:not([type="text/javascript"]):not(:is(#{$ct-non-blocking-types})) ~ title::before,
+head script:not(:empty):not(:is(#{$ct-non-blocking-types})) ~ title::before {
   content: "[<title> blocked by JS] ";
 }
 

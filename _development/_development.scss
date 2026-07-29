@@ -1,11 +1,12 @@
 @use "sass:meta";
 
 @layer development {
+  // třída `.env-development` musí být na <html>
   .env-development {
     @include meta.load-css("rwd-identifier");
-    //@include meta.load-css("rwd-viewport-half");
-    //@include meta.load-css("debug");
-    @include meta.load-css("debug-grid");
+    //@include meta.load-css("debug"); // TODO
+    //@include meta.load-css("debug-grid");
+    @include meta.load-css("ct");
     @include meta.load-css("accessibility");
   }
 }
