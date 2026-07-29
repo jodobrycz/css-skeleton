@@ -1,154 +1,65 @@
-/* ========================================================================== *\
-   Base -> Debug ($base-debug)
-\* ========================================================================== */
+/* Highlighting accessibility and semantic errors in HTML */
 
-//
-// DO NOT USE THIS STYLESHEET IN PRODUCTION!
-//
-// This stylesheet is for developers only. It can help you visually detect any
-// nesting issues, invalid markup, or inaccessible code in your project.
-//
-// @link http://cbrac.co/1C01g8C
-//
-// DO NOT USE THIS STYLESHEET IN PRODUCTION!
-//
+$debug-outline-error: .25rem solid #f00;
+$debug-outline-alert: .25rem solid #ffa500;
 
-$debug-outline-width: 5px;
-$debug-outline-style: solid;
-$debug-outline-color-error: red;
-$debug-outline-color-warning: yellow;
-
-//
-// Debug
-//
-// red    = error
-// yellow = warning
-// none   = no issues
-//
-
-/**
- * Images require `alt` attributes, empty `alt` is fine but should be
- * double-checked, no `alt` is bad.
- */
-
-img {
-  outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
+/* highlight HTML element with invalid value for lang attribute */
+&:not([lang]),
+&[lang=""] {
+  outline: $debug-outline-error;
 }
 
-img[alt] {
-  outline: none !important;
+/* highlight images missing alt text */
+img:not([alt]) {
+  filter: blur(5px) !important;
 }
 
-img[alt=""] {
-  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+/* highlight on all elements that are inside of lists but not a list item <li> and displays them with a red outline */
+:is(ul, ol) > *:not(li) {
+  outline: $debug-outline-error;
 }
 
-/**
- * Double-check any links whose `href` is something questionable.
- */
-
-a[href=""],
+/* highlight on links without valid href attribute */
+a:not([href]),
 a[href="#"],
-a[href*="javascript"] {
-  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+a[href=""],
+a[href^="javascript:"] {
+  outline: $debug-outline-error;
 }
 
-/**
- * Try to avoid using the `target` attribute.
- */
-
-a[target] {
-  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+/* highlights label with invalid for attribute */
+label:not([for]):not(:has(input, select, textarea)),
+label[for="#"],
+label[for=""] {
+  outline: $debug-outline-error;
 }
 
-
-/**
- * Ensure any lists only contain <li> as children.
- */
-
-ul,
-ol {
-  > *:not(li) {
-    outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
-  }
+/* Avoids div buttons from hell. More details in https://www.htmhell.dev/2-div-with-button-role/ */
+[role="button"]:not(button, input) {
+  outline: $debug-outline-error;
 }
 
-/**
- * It's always nice to give <th> the `scope` attribute.
- */
-
-th {
-  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+/* highlight on empty anchors/buttons */
+button:empty:not([aria-label], [aria-labelledby]),
+a:empty:not([aria-label], [aria-labelledby]) {
+  outline: $debug-outline-error;
 }
 
-th[scope] {
-  outline: none !important;
+/* it's always nice to give <th> the `scope` attribute */
+th:not([scope]) {
+  outline: $debug-outline-alert;
 }
 
-
-/**
- * <tr> as child of <table> ain't great, did you need a <thead> or <tbody>?
- */
-
-table > tr {
-  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+/* forms require `action` attributes */
+form:not([action]) {
+  outline: $debug-outline-error;
 }
 
-
-/**
- * `tfoot` needs to come *before* `tbody`.
- */
-
-tbody + tfoot {
-  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+form[action="#"] {
+  outline: $debug-outline-alert;
 }
 
-
-/**
- * Forms require `action` attributes.
- */
-
-form {
-  outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
-}
-
-form[action] {
-  outline: none !important;
-}
-
-
-/**
- * Various form-field types have required attributes. <input> needs a `type`
- * attribute, <textarea> needs `rows` and `cols` attributes, and submit buttons
- * need a `value` attribute.
- */
-
-textarea,
-input {
-  outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
-}
-
-input[type] {
-  outline: none !important;
-}
-
-textarea[rows][cols] {
-  outline: none !important;
-}
-
-input[type=submit] {
-  outline: $debug-outline-width $debug-outline-style $debug-outline-color-error !important;
-}
-
-input[type=submit][value] {
-  outline: none !important;
-}
-
-
-/**
- * Avoid inline styles wherever possible.
- */
-
-[style] {
-  outline: $debug-outline-width $debug-outline-style $debug-outline-color-warning !important;
+/* <input> needs a `type` attribute */
+input:not([type]) {
+  outline: $debug-outline-error;
 }
