@@ -65,33 +65,6 @@ samp {
   }
 }
 
-abbr[title] {
-  border-block-end: 1px dotted;
-  cursor: help;
-  position: relative;
-  text-decoration: none;
-
-  &:hover,
-  &:focus-within {
-    &::after {
-      background-color: $color-white;
-      block-size: auto;
-      border: .1rem solid #767676;
-      box-shadow: 0 0 .5rem 0 rgba(0, 0, 0, 0.4);
-      color: $text-color;
-      content: attr(title);
-      font-size: .75em;
-      inset-block-start: 100%;
-      inset-inline-start: 50%;
-      padding-block: .3rem;
-      padding-inline: .5rem;
-      position: absolute;
-      transform: translateX(-50%);
-      white-space: nowrap;
-    }
-  }
-}
-
 .clearfix {
   display: flow-root;
 }
