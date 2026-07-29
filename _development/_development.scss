@@ -1,19 +1,11 @@
 @use "sass:meta";
 
-// Režim buildu. Nastavuje ho main.scss přes `$with: ("env": $env)`,
-// hodnota přichází z vite.config.js (additionalData).
-// Default `prod` = když se konfigurace nepředá, dev nástroje se nezkompilují.
-$env: prod !default;
-
-@if $env == dev {
-  @layer development {
-    // Třída `.env-development` musí být na <html>
-    .env-development {
-      @include meta.load-css("rwd-identifier");
-      //@include meta.load-css("debug"); // TODO
-      //@include meta.load-css("debug-grid");
-    }
-
+@layer development {
+  // třída `.env-development` musí být na <html>
+  .env-development {
+    @include meta.load-css("rwd-identifier");
+    //@include meta.load-css("debug"); // TODO
+    //@include meta.load-css("debug-grid");
     @include meta.load-css("ct");
     @include meta.load-css("accessibility");
   }
