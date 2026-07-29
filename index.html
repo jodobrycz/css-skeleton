@@ -75,6 +75,9 @@
           <p>
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
           </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+          </p>
           <ol>
             <li>odrážka – Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.</li>
             <li>
@@ -99,41 +102,49 @@
           <div class="horizontal-scroll-container">
             <table class="table">
               <thead>
-              <tr>
-                <th>Lorem ipsum dolor</th>
-                <th class="right">Lacus</th>
-                <th class="right">Lacus s SIT</th>
-              </tr>
+                <tr>
+                  <th>Lorem ipsum dolor</th>
+                  <th class="right">Lacus</th>
+                  <th class="right">Lacus s SIT</th>
+                </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis</td>
-                <td class="right nowrap">2 000 Kč</td>
-                <td class="right nowrap strong">2 420 Kč</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum dolor sit amet consectetuer pretium</td>
-                <td class="right nowrap">2 000 Kč</td>
-                <td class="right nowrap strong">2 420 Kč</td>
-              </tr>
-              <tr>
-                <td>Semper pretium Phasellus vel mauris orci vel nibh orci</td>
-                <td class="right nowrap">2 000 Kč</td>
-                <td class="right nowrap strong">2 420 Kč</td>
-              </tr>
-              <tr>
-                <td>Inventore veritatis et quasi architecto beatae</td>
-                <td class="right nowrap">2 000 Kč</td>
-                <td class="right nowrap strong">2 420 Kč</td>
-              </tr>
-              <tr>
-                <td>Quasi architecto beatae vitae dicta sunt explicabo</td>
-                <td class="right nowrap">2 000 Kč</td>
-                <td class="right nowrap strong">2 420 Kč</td>
-              </tr>
+                <tr>
+                  <td>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis</td>
+                  <td class="right nowrap">2 000 Kč</td>
+                  <td class="right nowrap strong">2 420 Kč</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum dolor sit amet consectetuer pretium</td>
+                  <td class="right nowrap">2 000 Kč</td>
+                  <td class="right nowrap strong">2 420 Kč</td>
+                </tr>
+                <tr>
+                  <td>Semper pretium Phasellus vel mauris orci vel nibh orci</td>
+                  <td class="right nowrap">2 000 Kč</td>
+                  <td class="right nowrap strong">2 420 Kč</td>
+                </tr>
+                <tr>
+                  <td>Inventore veritatis et quasi architecto beatae</td>
+                  <td class="right nowrap">2 000 Kč</td>
+                  <td class="right nowrap strong">2 420 Kč</td>
+                </tr>
+                <tr>
+                  <td>Quasi architecto beatae vitae dicta sunt explicabo</td>
+                  <td class="right nowrap">2 000 Kč</td>
+                  <td class="right nowrap strong">2 420 Kč</td>
+                </tr>
               </tbody>
+              <tfoot>
+                <tr>
+                  <td>Quasi architecto beatae vitae dicta sunt explicabo</td>
+                  <td class="right nowrap">2 000 Kč</td>
+                  <td class="right nowrap strong">2 420 Kč</td>
+                </tr>
+              </tfoot>
             </table>
           </div>
+
           <p>
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
           </p>
@@ -241,23 +252,23 @@
           <h3>Input</h3>
           <div class="form-group">
             <label class="control-label" for="textInput">výchozí stav</label>
-            <input type="text" id="textInput" name="textInput" value="Jméno" class="form-control" placeholder="placeholder">
+            <input class="form-control" id="textInput" type="text" name="textInput" value="">
             <span class="help-block" id="textInput_messages">Vyplňte text pouze hůlkovým písmem!</span>
           </div>
           <div class="form-group">
             <label class="control-label" for="textInput--disabled">disabled stav</label>
-            <input type="text" id="textInput--disabled" name="textInput--disabled" value="text in area" class="form-control" disabled>
+            <input class="form-control" id="textInput--disabled" type="text" name="textInput--disabled" value="" disabled>
           </div>
 
           <h3>Textarea</h3>
           <div class="form-group">
             <label class="control-label" for="textareaInput">výchozí stav</label>
-            <textarea id="textareaInput" name="textareaInput" class="form-control" cols="35" rows="5"></textarea>
+            <textarea class="form-control" id="textareaInput" name="textareaInput"></textarea>
             <span class="help-block" id="textareaInput_messages"></span>
           </div>
           <div class="form-group">
             <label class="control-label" for="textareaInput--disabled">disabled stav</label>
-            <textarea id="textareaInput--disabled" name="textareaInput--disabled" class="form-control" cols="35" rows="5" disabled></textarea>
+            <textarea class="form-control" id="textareaInput--disabled" name="textareaInput--disabled" disabled></textarea>
           </div>
 
           <h2>Highlight</h2>
